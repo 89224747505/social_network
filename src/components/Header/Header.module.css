@@ -3,14 +3,27 @@
     border-radius: 15px;
     border: 4px solid green;
     box-shadow: 0 0 10px 1px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header__image {
-    margin: 5px 0 0 30px;
+    margin: 0 0 0 30px;
     text-align: center;
     font-size: 12px;
     width: 80px;
     height: 80px;
     background: url("https://upload.wikimedia.org/wikipedia/commons/1/1e/RPC-JP_Logo.png") center no-repeat;
     background-size: contain;
+}
+.menu {
+    width: 800px;
+    height: 50px;
+    display: flex;
+}
+.menu>div {
+    width:20%;
+    height: 40px;
+    border: 1px solid #000;
 }

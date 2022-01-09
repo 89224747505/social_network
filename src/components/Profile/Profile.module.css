@@ -1,5 +1,5 @@
 .Profile {
-    background: greenyellow;
+    background: white;
     border-radius: 15px;
     border: 4px solid green;
     box-shadow: 0 0 10px 1px black;
@@ -8,14 +8,19 @@
 .container {
     padding: 30px;
 }
+.imDesContainer {
+    display: flex;
+    align-items: flex-start;
+}
 
-.imageDesktop {
-    background: url("https://86kcson.ru/upload/medialibrary/1e6/Vygul-sobak.png") no-repeat;
-    width: 500px;
-    height: 230px;
-    background-size: contain;
-    margin: 0 auto;
-    border-radius: 25px;
+.imgDesktop {
+    width: 50%;
+    height: 300px;
+}
+
+.imgDesktopSide {
+    height: 200px;
+    width: 25%;
 }
 
 .avaDesBlock {

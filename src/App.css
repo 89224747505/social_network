@@ -2,7 +2,7 @@ html, body, #root {
     margin: 10px 10px 10px 5px;
 }
 .wrapper {
-    width: 80%;
+    width: 1300px;
     margin: 0 auto;
 }
 .App {
@@ -12,7 +12,7 @@ html, body, #root {
     grid-template-areas:
     "header_area header_area"
     "navbar_area profile_area"
-    ". .";
+    ". profile_area";
     margin: 0 auto;
     grid-gap: 20px;
 }

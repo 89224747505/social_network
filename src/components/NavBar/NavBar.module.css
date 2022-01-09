@@ -3,7 +3,7 @@
     border-radius: 15px;
     border: 4px solid green;
     box-shadow: 0 0 10px 1px black;
-    height: 600px;
+    height: 300px;
 }
 
 .container {
@@ -20,7 +20,7 @@
 .container > div > a {
     color: white;
     text-decoration: none;
-    text-shadow: 0 0 10px black;
+    text-shadow: 0 0 5px black;
 }
 
 .container > div:last-child {
@@ -29,5 +29,11 @@
 
 .container > div > a:hover {
     color: coral;
+    border-bottom:4px solid coral;
+}
+.container > div > a:active {
+    text-shadow: none;
+    color:cornflowerblue;
+    border:none;
 }
 
