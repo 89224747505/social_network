@@ -1,0 +1,16 @@
+.Header {
+    background: greenyellow;
+    border-radius: 15px;
+    border: 4px solid green;
+    box-shadow: 0 0 10px 1px black;
+}
+
+.header__image {
+    margin: 5px 0 0 30px;
+    text-align: center;
+    font-size: 12px;
+    width: 80px;
+    height: 80px;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/1/1e/RPC-JP_Logo.png") center no-repeat;
+    background-size: contain;
+}

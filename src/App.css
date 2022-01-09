@@ -1,38 +1,30 @@
+html, body, #root {
+    margin: 10px 10px 10px 5px;
+}
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
 .App {
-  text-align: center;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-template-areas:
+    "header_area header_area"
+    "navbar_area profile_area"
+    ". profile_area";
+    margin: 0 auto;
+    grid-gap: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+Header {
+    grid-area: header_area;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+NavBar {
+    grid-area: navbar_area;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+Profile {
+    grid-area: profile_area;
 }

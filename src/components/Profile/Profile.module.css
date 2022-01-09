@@ -1,0 +1,10 @@
+.Profile {
+    height: 600px;
+    background: greenyellow;
+    border-radius: 15px;
+    border: 4px solid green;
+    box-shadow: 0 0 10px 1px black;
+}
+.container {
+    padding: 30px;
+}
