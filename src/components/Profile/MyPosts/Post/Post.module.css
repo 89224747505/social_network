@@ -11,7 +11,8 @@
     box-shadow: 0 0 5px 1px black;
     border-radius: 50%;
 }
-.imgPost>img {
+
+.imgPost > img {
     width: 70px;
     height: 70px;
 
@@ -28,28 +29,34 @@
 .postFrame > div {
     margin: 20px;
 }
+
 .container {
     display: flex;
 }
-.container>div {
-    margin-left:20px;
+
+.container > div {
+    margin-left: 20px;
     opacity: 0.5;
 }
+
 .like {
     width: 30px;
     height: 30px;
     background: url("https://cdn.worldvectorlogo.com/logos/fb-like.svg") center no-repeat;
     background-size: contain;
 }
+
 .like:hover {
     opacity: 1;
 }
+
 .dislike {
     width: 30px;
     height: 30px;
     background: url("https://cdn.iconscout.com/icon/free/png-256/dislike-141-889579.png") center no-repeat;
     background-size: contain;
 }
+
 .dislike:hover {
     opacity: 1;
 }
@@ -60,6 +67,24 @@
     background: url("https://freepngimg.com/save-icon/73370-sharing-like-icons-button-share-computer-facebook/512x512") center no-repeat;
     background-size: contain;
 }
+
 .share:hover {
     opacity: 1;
+}
+
+.likeContainer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 10px 0 0 25px;
+    width: 45%;
+}
+
+.likeCount {
+    color: red;
+}
+
+.dislikeCount {
+
 }
