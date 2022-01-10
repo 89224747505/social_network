@@ -29,11 +29,12 @@
 
 .container > div > a:hover {
     color: coral;
-    border-bottom:4px solid coral;
+    border-bottom: 4px solid coral;
 }
+
 .container > div > a:active {
     text-shadow: none;
-    color:cornflowerblue;
-    border:none;
+    color: cornflowerblue;
+    border: none;
 }
 

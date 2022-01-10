@@ -4,7 +4,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <content className={classes.Profile}>
+        <div>
             <div className={classes.container}>
                 <div className={classes.imDesContainer}>
                     <img className={classes.imgDesktopSide} src="https://starwars-galaxy.ru/800/600/https/www.clipartmax.com/png/full/107-1073008_big-image-dog-animal-clipart.png" alt=""/>
@@ -23,7 +23,7 @@ const Profile = () => {
                 </div>
                 <MyPosts />
             </div>
-        </content>
+        </div>
     );
 };
 

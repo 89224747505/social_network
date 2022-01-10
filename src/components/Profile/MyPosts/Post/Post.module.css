@@ -50,15 +50,24 @@
     opacity: 1;
 }
 
+.like:active {
+    filter: invert(20%);
+}
+
 .dislike {
     width: 30px;
     height: 30px;
+    padding-top: 18px;
     background: url("https://cdn.iconscout.com/icon/free/png-256/dislike-141-889579.png") center no-repeat;
     background-size: contain;
 }
 
 .dislike:hover {
     opacity: 1;
+}
+
+.dislike:active {
+    filter: invert(60%);
 }
 
 .share {
@@ -72,12 +81,15 @@
     opacity: 1;
 }
 
+.share:active {
+    filter: invert(60%);
+}
 .likeContainer {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
     font-weight: 700;
-    margin: 10px 0 0 25px;
+    margin-left: 25px;
     width: 45%;
 }
 

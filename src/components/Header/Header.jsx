@@ -6,11 +6,11 @@ const Header = () => {
         <header className={classes.Header}>
             <div className={classes.header__image}></div>
             <div className={classes.menu}>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div>About</div>
+                <div>Content</div>
+                <div>Master</div>
+                <div>Slave</div>
+                <div>Connection</div>
             </div>
         </header>
     );

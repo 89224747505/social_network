@@ -1,11 +1,11 @@
 import React from 'react';
-import classes from "./Dialogs.module.css";
+import classes from "./News.module.css";
 
-const Dialogs = () => {
+const News = () => {
     return (
         <div>
             <div className={classes.container}>
-                Dialogs Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, iusto adipisci sit modi! Itaque aut
+                News Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, iusto adipisci sit modi! Itaque aut
                 blanditiis hic corporis amet sit minus fugiat, placeat ab, facere natus esse necessitatibus voluptates
                 ullam harum dicta, aliquam laborum officia provident. Iusto, totam dignissimos delectus nesciunt eum,
                 dolorem. Debitis explicabo itaque repudiandae corrupti quam sint sequi unde iure optio. Labore,
@@ -26,4 +26,4 @@ const Dialogs = () => {
     );
 };
 
-export default Dialogs;
+export default News;
