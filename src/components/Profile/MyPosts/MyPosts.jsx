@@ -2,7 +2,13 @@ import React from 'react';
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+    let postPage = props.postPage;
+    //Массив тегов-компонентов Post, которые беруться из postData и помещаются postElement в JSX коде
+    let postElement = postPage
+        .map(i => <Post text={i.text} imgUrl={i.imgUrl} likesCounter={i.likesCounter} dislikesCounter={i.dislikesCounter}/>)
+
+
     return (<div className={classes.MyPosts}>
         <div className={classes.descriptionPost}>My posts</div>
         <div className={classes.postContainer}>
@@ -11,24 +17,7 @@ const MyPosts = () => {
                 <button>Add post</button>
             </div>
         </div>
-        <Post
-            text="Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?"
-            imgUrl="https://ggscore.com/media/logo/t25596.png?64"
-            likesCounter="5"
-            dislikesCounter="10"
-        />
-        <Post
-            text="Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?"
-            imgUrl="https://ggscore.com/media/logo/t25596.png?64"
-            likesCounter="52k"
-            dislikesCounter="54k"
-        />
-        <Post
-            text="Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?"
-            imgUrl="https://ggscore.com/media/logo/t25596.png?64"
-            likesCounter="902"
-            dislikesCounter="5"
-        />
+        {postElement}
     </div>);
 };
 
