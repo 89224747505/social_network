@@ -7,10 +7,19 @@
     font-size: 20px;
     display: grid;
     grid-template-columns: 3fr 10fr;
-    grid-template-areas: "username usermessage";
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas: "userName userMessage"
+                         "userName textAreaBtn";
 }
 .userDialogs {
-    grid-area: username;
+    grid-area: userName;
+}
+.textAreaBtn {
+    grid-area: textAreaBtn;
+    padding: 0 40px 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 .titleDialogs {
     padding-bottom: 20px;
@@ -24,9 +33,53 @@
 }
 
 .userMessages {
-    grid-area: usermessage;
+    grid-area: userMessage;
     border-left: 2px dashed coral;
     padding-left: 50px;
 }
 
+.messageArea {
+    width: 100%;
+    height: 60px;
+    resize: none;
+    border: 5px solid green;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: "Roboto";
+    font-size: 20px;
+    background: white;
+    overflow: hidden;
+}
+.messageArea:focus {
+    outline: none;
+    box-shadow: 0 0 10px 1px green;
+    background: greenyellow;
+}
 
+.messageBtn {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.messageBtn > button {
+    font-size: 20px;
+    font-family: Calibri;
+    box-shadow: 0 0 10px 1px green;
+    border: 2px solid black;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    background: green;
+    color: white;
+}
+
+.messageBtn > button:hover {
+    background: greenyellow;
+    color: black;
+}
+
+.messageBtn > button:active {
+    background: cornflowerblue;
+    color: white;
+    box-shadow: none;
+}

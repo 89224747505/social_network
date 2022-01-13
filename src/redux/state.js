@@ -1,12 +1,13 @@
+import {rerenderEntireTree} from "../render";
 
 let state = {
-    dialogPage : [
+    dialogPage: [
         {id: 1, name: 'Иван'},
         {id: 2, name: 'Иннокентий'},
         {id: 3, name: 'Петр'},
         {id: 4, name: 'Афонасий'},
     ],
-    messagePage : [
+    messagePage: [
         {
             id: 1,
             name: "Иван1",
@@ -31,37 +32,58 @@ let state = {
             imgpath: "https://ggscore.com/media/logo/t25596.png?64",
             text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
         },
-    ],
-    postPage : [
         {
-            id: 1,
-            text: "5Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
-            imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "5",
-            dislikesCounter: "232"
-        },
-        {
-            id: 2,
-            text: "4Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
-            imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "523",
-            dislikesCounter: "10"
-        },
-        {
-            id: 3,
-            text: "3Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
-            imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "125",
-            dislikesCounter: "130"
-        },
-        {
-            id: 4,
-            text: "+++Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
-            imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "125",
-            dislikesCounter: "130"
+            id: 5,
+            name: "Иван5",
+            imgpath: "https://ggscore.com/media/logo/t25596.png?64",
+            text: "11111Lorem sdfgsdfgsdfgipsum dolor sit amet consectetur, adipisicing elit."
         },
     ],
+    profilePage: {
+        posts: [
+            {
+                id: 1,
+                text: "5Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
+                imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
+                likesCounter: "5",
+                dislikesCounter: "232"
+            },
+            {
+                id: 2,
+                text: "4Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
+                imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
+                likesCounter: "523",
+                dislikesCounter: "10"
+            },
+            {
+                id: 3,
+                text: "3Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
+                imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
+                likesCounter: "125",
+                dislikesCounter: "130"
+            },
+            {
+                id: 4,
+                text: "+++Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
+                imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
+                likesCounter: "125",
+                dislikesCounter: "130"
+            },
+        ],
+        newPostText:"it KAMAZ",
+    }
+}
+
+export let addPost = () => {
+    let newPost = {id: 5, text: state.profilePage.newPostText, imgUrl: "", likesCounter: "3", dislikesCounter: "5",};
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state, addPost, newPostTextChange);
+    state.profilePage.newPostText="";
+}
+
+export let newPostTextChange = (changeMessage) => {
+    state.profilePage.newPostText = changeMessage;
+    rerenderEntireTree(state, addPost, newPostTextChange)
 }
 
 export default state;

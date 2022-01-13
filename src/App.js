@@ -13,7 +13,8 @@ function App(props) {
     // Объекты диалога. Его элементы, т.е. ID и Имя пользователя
     let dialogPage = props.state["dialogPage"];  // Достаем dialogPage из объекта state и помещаем в объект dialogPage для более удобной манипуляции
     let messagePage = props.state["messagePage"];// Достаем messagePage из объекта state и помещаем в объект messagePage для более удобной манипуляции
-    let postPage = props.state["postPage"];      // Достаем postPage из объекта state и помещаем в объект postPage для более удобной манипуляции
+    let profilePage = props.state["profilePage"];      // Достаем postPage из объекта state и помещаем в объект postPage для более удобной манипуляции
+    let addPost = props.addPost;
 
     return (
         <div className="wrapper">
@@ -23,7 +24,7 @@ function App(props) {
                     <NavBar/>
                     <div className="app__content">
                         <Routes>
-                            <Route path="/profile*" element={<Profile postPage={postPage}/>}/>
+                            <Route path="/profile*" element={<Profile profilePage={profilePage} addPost={addPost} newPostTextChange={props.newPostTextChange}/>}/>
                             <Route path="/messages*" element={<Dialogs dialogPage={dialogPage} messagePage={messagePage}/>}/>
                             <Route path="/news*" element={<News/>}/>
                             <Route path="/music*" element={<Music/>}/>

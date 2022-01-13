@@ -4,13 +4,15 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
-    let postPage = props.postPage;
+    let posts = props.profilePage["posts"];
+    let newPostText = props.profilePage["newPostText"]
+    let addPost = props.addPost;
 
     return (
         <div>
             <div className={classes.container}>
                 <ProfileInfo />
-                <MyPosts postPage={postPage}/>
+                <MyPosts posts={posts} newPostText={newPostText} addPost={addPost} newPostTextChange={props.newPostTextChange}/>
             </div>
         </div>
     );
