@@ -15,6 +15,9 @@ function App(props) {
     let messagePage = props.state["messagePage"];// Достаем messagePage из объекта state и помещаем в объект messagePage для более удобной манипуляции
     let profilePage = props.state["profilePage"];      // Достаем postPage из объекта state и помещаем в объект postPage для более удобной манипуляции
     let addPost = props.addPost;
+    let addMessage = props.addMessage;
+    let newPostTextChange = props.newPostTextChange;
+    let newMessageTextChange = props.newMessageTextChange;
 
     return (
         <div className="wrapper">
@@ -24,8 +27,8 @@ function App(props) {
                     <NavBar/>
                     <div className="app__content">
                         <Routes>
-                            <Route path="/profile*" element={<Profile profilePage={profilePage} addPost={addPost} newPostTextChange={props.newPostTextChange}/>}/>
-                            <Route path="/messages*" element={<Dialogs dialogPage={dialogPage} messagePage={messagePage}/>}/>
+                            <Route path="/profile*" element={<Profile profilePage={profilePage} addPost={addPost} newPostTextChange={newPostTextChange}/>}/>
+                            <Route path="/messages*" element={<Dialogs dialogPage={dialogPage} messagePage={messagePage} addMessage={addMessage} newMessageTextChange={newMessageTextChange}/>}/>
                             <Route path="/news*" element={<News/>}/>
                             <Route path="/music*" element={<Music/>}/>
                             <Route path="/settings*" element={<Settings/>}/>

@@ -6,7 +6,7 @@ import MessageItem from "./MessageItem/MessageItem";
 
 const Dialogs = (props) => {
 
-    let messagePage = props.messagePage; //Загрузка messageData из props
+    let messagePage = props.messagePage.messages; //Загрузка messageData из props
     let dialogPage = props.dialogPage; //Загрузка dataElements из props
 
 
@@ -21,10 +21,18 @@ const Dialogs = (props) => {
 
     let newMessageElement = React.createRef();
 
-    const addMessage = () => {
-        if (newMessageElement.current.value !== "") alert(newMessageElement.current.value);
-
+    let addMessageOnClick = () => {
+        debugger;
+        if (newMessageElement.current.value !== "") {
+            props.addMessage();
+        }
     }
+
+    let onChangeMessage = () => {
+        debugger;
+        props.newMessageTextChange(newMessageElement.current.value)
+    }
+
     return (
         <div>
             <div className={classes.wrapper}>
@@ -36,9 +44,9 @@ const Dialogs = (props) => {
                     {messageElements}
                 </div>
                 <div className={classes.textAreaBtn}>
-                    <textarea ref={newMessageElement} className={classes.messageArea} placeholder="Write something:"></textarea>
+                    <textarea ref={newMessageElement} onChange={onChangeMessage} className={classes.messageArea} value={props.messagePage.newMessageText}/>
                     <div className={classes.messageBtn}>
-                        <button onClick={addMessage}>Add message</button>
+                        <button onClick={addMessageOnClick}>Add message</button>
                     </div>
                 </div>
             </div>

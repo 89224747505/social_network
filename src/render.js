@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 
-export let rerenderEntireTree = (state, addPost, newPostTextChange) => {
-    ReactDOM.render(<App state={state} addPost={addPost} newPostTextChange={newPostTextChange}/>, document.getElementById('root'));
+export let rerenderEntireTree = (state, addPost, addMessage, newPostTextChange, newMessageTextChange) => {
+    ReactDOM.render(<App state={state} addPost={addPost} addMessage={addMessage} newPostTextChange={newPostTextChange} newMessageTextChange={newMessageTextChange}/>, document.getElementById('root'));
 };
 
