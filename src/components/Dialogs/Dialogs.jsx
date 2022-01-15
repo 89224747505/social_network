@@ -2,16 +2,17 @@ import React from 'react';
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
+import {addMessageCreator, updateNewMessageCreator} from "../../redux/store";
 
 
 const Dialogs = (props) => {
 
-    let messagePage = props.messagePage.messages; //Загрузка messageData из props
-    let dialogPage = props.dialogPage; //Загрузка dataElements из props
+    let messagePage = props.store.getState().messagePage; //Загрузка messageData из props
+    let dialogPage = props.store.getState().dialogPage; //Загрузка dataElements из props
 
 
     //Массив элементов MessageItem
-    let messageElements = messagePage
+    let messageElements = messagePage.messages
         .map(message => <MessageItem userId={message.id} userName={message.name} imgpath={message.imgpath}
                                      text={message.text}/>)
 
@@ -19,19 +20,9 @@ const Dialogs = (props) => {
     let dialogElements = dialogPage
         .map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>);
 
-    let newMessageElement = React.createRef();
+    let addMessageOnClick = () => props.dispatch(addMessageCreator());
 
-    let addMessageOnClick = () => {
-        debugger;
-        if (newMessageElement.current.value !== "") {
-            props.addMessage();
-        }
-    }
-
-    let onChangeMessage = () => {
-        debugger;
-        props.newMessageTextChange(newMessageElement.current.value)
-    }
+    let onChangeMessage = (event) => props.dispatch(updateNewMessageCreator(event.target.value));
 
     return (
         <div>
@@ -44,7 +35,8 @@ const Dialogs = (props) => {
                     {messageElements}
                 </div>
                 <div className={classes.textAreaBtn}>
-                    <textarea ref={newMessageElement} onChange={onChangeMessage} className={classes.messageArea} value={props.messagePage.newMessageText}/>
+                    <textarea placeholder="Enter your message:" onChange={onChangeMessage} className={classes.messageArea}
+                              value={messagePage.newMessageText}/>
                     <div className={classes.messageBtn}>
                         <button onClick={addMessageOnClick}>Add message</button>
                     </div>
