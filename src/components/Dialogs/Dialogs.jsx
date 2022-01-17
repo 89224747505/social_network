@@ -6,10 +6,8 @@ import {addMessageCreator, updateNewMessageCreator} from "../../redux/store";
 
 
 const Dialogs = (props) => {
-
-    let messagePage = props.store.getState().messagePage; //Загрузка messageData из props
-    let dialogPage = props.store.getState().dialogPage; //Загрузка dataElements из props
-
+    let messagePage = props.message; //Загрузка messageData из props
+    let dialogPage = props.dialog; //Загрузка dataElements из props
 
     //Массив элементов MessageItem
     let messageElements = messagePage.messages
@@ -20,9 +18,9 @@ const Dialogs = (props) => {
     let dialogElements = dialogPage
         .map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>);
 
-    let addMessageOnClick = () => props.dispatch(addMessageCreator());
+    let addMessageOnClick = () => props.addMessage();
 
-    let onChangeMessage = (event) => props.dispatch(updateNewMessageCreator(event.target.value));
+    let onChangeMessage = (event) => props.updateMessageOnChange(event.target.value);
 
     return (
         <div>

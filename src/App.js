@@ -7,7 +7,8 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import store from "./redux/store";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+
 
 
 function App(props) {
@@ -18,8 +19,8 @@ function App(props) {
                 <NavBar/>
                 <div className="app__content">
                     <Routes>
-                        <Route path="/profile*" element={<Profile store={props.store} dispatch={props.dispatch}/>}/>
-                        <Route path="/messages*" element={<Dialogs store={props.store} dispatch={props.dispatch}/>}/>
+                        <Route path="/profile*" element={<Profile/>}/>
+                        <Route path="/messages*" element={<DialogsContainer/>}/>
                         <Route path="/news*" element={<News/>}/>
                         <Route path="/music*" element={<Music/>}/>
                         <Route path="/settings*" element={<Settings/>}/>

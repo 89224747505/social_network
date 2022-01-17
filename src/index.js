@@ -1,20 +1,16 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import App from "./App";
-import store from "./redux/store";
+import store from "./redux/reduxStore";
 import "./index.css"
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
 
 
-let rerenderEntireTree = () => {
-    ReactDOM.render(
-        <BrowserRouter>
-           <App store={store} dispatch={store.dispatch.bind(store)}/>
-        </BrowserRouter>, document.getElementById('root'));
-};
-
-rerenderEntireTree(); //Отрисовывает первый раз rerenderEntireTree
-
-store.subscribe(rerenderEntireTree);  // Делает колбэк через функцию subscribe передает функцию, как объект rerenderEntireTree в store.js,
-// где в дальнейшем она присваивается локальной модульной переменной rerenderEntireTree
-
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </BrowserRouter>
+    , document.getElementById('root'));

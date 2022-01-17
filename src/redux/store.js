@@ -1,7 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+import profileReducer from "./profileReducer";
+import messageReducer from "./messageReducer";
 
 
 let store = {
@@ -95,43 +93,11 @@ let store = {
     },
 //Метод ДИСПЕТЧЕР для
     dispatch(action) {
-        if (action.type === 'ADD-POST') {  //Метод добавления поста в Profile
-            let newPost = {
-                id: 5,
-                text: this._state.profilePage.newPostText,
-                imgUrl: "",
-                likesCounter: "3",
-                dislikesCounter: "5",
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = "";
-            this._callSubscriber();
-        } else if (action.type === 'ADD-MESSAGE') {  //Метод добавления  сообщения на странице Message
-            let newMessage = {
-                id: 5,
-                name: "Иван",
-                imgpath: "https://ggscore.com/media/logo/t25596.png?64",
-                text: this._state.messagePage.newMessageText
-            };
-            this._state.messagePage.messages.push(newMessage);
-            this._state.messagePage.newMessageText = "";
-            this._callSubscriber();
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') { //Метод контролирующий изменения в TextArea на странице Message
-            debugger;
-            this._state.messagePage.newMessageText = action.newMessage;
-            this._callSubscriber()
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') { //Метод контролирующий изменения в TextArea на странице Profile
-            this._state.profilePage.newPostText = action.newMessage;
-            this._callSubscriber()
-        }
-
+        this._state.profilePage = profileReducer(this._state.profilePage,action);
+        this._state.messagePage = messageReducer(this._state.messagePage,action);
+        this._callSubscriber();
     },
 };
-
-export const addPostCreator = () => ({type: ADD_POST}); // Создает объект для Диспатча, для управления рендером
-export const updateNewPostCreator = (textMessage) => ({type: UPDATE_NEW_POST_TEXT, newMessage: textMessage}); // Создает объект для Диспатча, для управления рендером
-export const addMessageCreator = () => ({type: ADD_MESSAGE}); // Создает объект для Диспатча, для управления рендером
-export const updateNewMessageCreator = (textMessage) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: textMessage}); // Создает объект для Диспатча, для управления рендером
 
 
 export default store;
