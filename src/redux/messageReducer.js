@@ -60,4 +60,6 @@ const messageReducer = (state = initReducer, action) => {
     }
 }
 
+export const addMessageAC = () => ({type: ADD_MESSAGE}); // Создает объект для Диспатча, для управления рендером
+export const updateMessageAC = (textMessage) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: textMessage}); // Создает объект для Диспатча, для управления рендером
 export default messageReducer;

@@ -60,4 +60,7 @@ const profileReducer = (state = initReducer, action) => {
     }
 }
 
+
+export const addPostAC = () => ({type: ADD_POST}); // Создает объект для Диспатча, для управления рендером
+export const updatePostAC = (textMessage) => ({type: UPDATE_NEW_POST_TEXT, newMessage: textMessage}); // Создает объект для Диспатча, для управления рендером
 export default profileReducer;

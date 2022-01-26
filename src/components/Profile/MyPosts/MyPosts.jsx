@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 const MyPosts = (props) => {
 
     let postElement = props.posts
-        .map(i => <Post text={i.text} imgUrl={i.imgUrl} likesCounter={i.likesCounter}
+        .map(i => <Post key={i.id} text={i.text} imgUrl={i.imgUrl} likesCounter={i.likesCounter}
                         dislikesCounter={i.dislikesCounter}/>)
 
     let addPostOnClick = () => props.addPost();
