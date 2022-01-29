@@ -5,6 +5,7 @@ const SET_BLOCK_BEFORE = "SET_BLOCK_BEFORE";
 const SET_BLOCK_AFTER = "SET_BLOCK_AFTER";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
+const SET_IS_FETCHING = "SET_IS_FETCHING";
 
 let initReducer = {
     users:[],
@@ -12,6 +13,7 @@ let initReducer = {
     pageSize:100,
     currentPage:1,
     currentTwentyBlock:0,
+    isFetching:true,
 };
 
 
@@ -64,6 +66,9 @@ const userReducer = (state = initReducer, action) => {
         case SET_CURRENT_PAGE:
             return {...state, currentPage: action.current};
 
+        case SET_IS_FETCHING:
+            return {...state, isFetching: action.stateIsFetching}
+
         default:
             return state;
     }
@@ -76,4 +81,5 @@ export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount
 export const setBlockBefore = () => ({type: SET_BLOCK_BEFORE});
 export const setBlockAfter = () => ({type: SET_BLOCK_AFTER});
 export const setCurrentPage = (current) => ({type: SET_CURRENT_PAGE, current});
+export const setIsFetching = (stateIsFetching) => ({type: SET_IS_FETCHING, stateIsFetching});
 export default userReducer;

@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Users.module.css";
-
+import Spinner from '../../img/Spinner.svg';
+import Preloader from "../common/Preloader/Preloader";
 
 const Users = (props) => {
 
@@ -21,8 +22,7 @@ const Users = (props) => {
                                       className={(props.currentPage === el) && classes.selectedPage}>{el}</div>)}
                 <div onClick={props.setBlockAfter}>&#62;</div>
             </div>
-
-
+            <Preloader isFetching={props.isFetching}/>
             {
                 props.users.map(u => <div className={classes.wrapper} key={u.id}>
                     <div>
