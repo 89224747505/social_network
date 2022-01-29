@@ -52,7 +52,7 @@ const userReducer = (state = initReducer, action) => {
             return {
                 ...state,
                 currentTwentyBlock:(state.currentTwentyBlock === 0) ? state.currentTwentyBlock : state.currentTwentyBlock-20,
-                currentPage: (state.currentTwentyBlock === 0) ? 20 : state.currentTwentyBlock,
+                currentPage: (state.currentTwentyBlock === 0) ? 1 : state.currentTwentyBlock,
             };
 
         case SET_USERS: return {...state, users:[ ...action.users]};
@@ -69,11 +69,11 @@ const userReducer = (state = initReducer, action) => {
     }
 }
 
-export const followAC = (userID) => ({type: FOLLOW, userID});
-export const unfollowAC = (userID) => ({type: UNFOLLOW, userID});
-export const setUsersAC = (users) => ({type: SET_USERS, users});
-export const setTotalCountAC = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
-export const setBlockBeforeAC = () => ({type: SET_BLOCK_BEFORE});
-export const setBlockAfterAC = () => ({type: SET_BLOCK_AFTER});
-export const setCurrentPageAC = (current) => ({type: SET_CURRENT_PAGE, current});
+export const follow = (userID) => ({type: FOLLOW, userID});
+export const unfollow = (userID) => ({type: UNFOLLOW, userID});
+export const setUsers = (users) => ({type: SET_USERS, users});
+export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
+export const setBlockBefore = () => ({type: SET_BLOCK_BEFORE});
+export const setBlockAfter = () => ({type: SET_BLOCK_AFTER});
+export const setCurrentPage = (current) => ({type: SET_CURRENT_PAGE, current});
 export default userReducer;

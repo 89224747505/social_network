@@ -1,15 +1,32 @@
 import React from 'react';
-import Users from "./Users";
 import {connect} from "react-redux";
-import {
-    followAC,
-    setUsersAC,
-    unfollowAC,
-    setBlockBeforeAC,
-    setBlockAfterAC,
-    setCurrentPageAC,
-    setTotalCountAC
-} from "../../redux/userReducer";
+import {follow, setUsers, unfollow, setBlockBefore, setBlockAfter, setCurrentPage, setTotalCount}  from "../../redux/userReducer";
+import axios from "axios";
+import Users from "./Users";
+
+class UsersContainer extends React.Component {
+
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setTotalCount(response.data.totalCount);
+                this.props.setUsers(response.data.items);
+            })
+    }
+
+    onClickPageChanged = (el) =>{
+        this.props.setCurrentPage(el);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${el}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            })
+    }
+
+    render() {
+        return <Users {...this.props} onClickPageChanged={this.onClickPageChanged}/>
+    }
+}
+
 
 let mapStateToProps = (state) => {
     return {
@@ -21,17 +38,5 @@ let mapStateToProps = (state) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => dispatch(followAC(userId)),
-        unfollow: (userId) => dispatch(unfollowAC(userId)),
-        setUsers: (users) => dispatch(setUsersAC(users)),
-        setTotalCount: (totalCount) => dispatch(setTotalCountAC(totalCount)),
-        setBlockBefore: () => dispatch(setBlockBeforeAC()),
-        setBlockAfter: () => dispatch(setBlockAfterAC()),
-        setCurrentPage: (current) => dispatch(setCurrentPageAC(current)),
-    }
-};
 
-
-export default connect(mapStateToProps,mapDispatchToProps)(Users);
+export default connect(mapStateToProps,{follow, unfollow, setUsers, setTotalCount, setBlockBefore, setBlockAfter, setCurrentPage,})(UsersContainer);
