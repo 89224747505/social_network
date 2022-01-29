@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import MyButton from "../../common/MyButton/MyButton";
 
 const MyPosts = (props) => {
 
@@ -16,9 +17,7 @@ const MyPosts = (props) => {
         <div className={classes.descriptionPost}>My posts</div>
         <div className={classes.postContainer}>
             <textarea placeholder="Enter your post:" onChange={onChangePost} className={classes.post} value={props.newPostText}/>
-            <div className={classes.postButton}>
-                <button onClick={addPostOnClick}>Add post</button>
-            </div>
+            <MyButton onClick={addPostOnClick}>Add post</MyButton>
         </div>
         {postElement}
     </div>);

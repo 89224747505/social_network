@@ -2,6 +2,7 @@ import React from 'react';
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
+import MyButton from "../common/MyButton/MyButton";
 
 
 
@@ -35,9 +36,7 @@ const Dialogs = (props) => {
                 <div className={classes.textAreaBtn}>
                     <textarea placeholder="Enter your message:" onChange={onChangeMessage} className={classes.messageArea}
                               value={messagePage.newMessageText}/>
-                    <div className={classes.messageBtn}>
-                        <button onClick={addMessageOnClick}>Add message</button>
-                    </div>
+                    <MyButton onClick={addMessageOnClick}>Add message</MyButton>
                 </div>
             </div>
         </div>

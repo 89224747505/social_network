@@ -1,5 +1,6 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SET_USER_PROFILE_DATA = "SET_USER_PROFILE_DATA";
 
 let initReducer = {
     posts: [
@@ -17,22 +18,9 @@ let initReducer = {
             likesCounter: "523",
             dislikesCounter: "10"
         },
-        {
-            id: 3,
-            text: "3Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
-            imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "125",
-            dislikesCounter: "130"
-        },
-        {
-            id: 4,
-            text: "+++Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
-            imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "125",
-            dislikesCounter: "130"
-        },
     ],
     newPostText: "",
+    profile: null,
 };
 
 
@@ -55,12 +43,16 @@ const profileReducer = (state = initReducer, action) => {
             let stateCopy = {...state};
             stateCopy.newPostText = action.newMessage;
             return stateCopy;}
+        case SET_USER_PROFILE_DATA:{
+            return {...state, profile:action.usersData}
+        }
         default:
             return state;
     }
 }
 
 
-export const addPostAC = () => ({type: ADD_POST}); // Создает объект для Диспатча, для управления рендером
-export const updatePostAC = (textMessage) => ({type: UPDATE_NEW_POST_TEXT, newMessage: textMessage}); // Создает объект для Диспатча, для управления рендером
+export const addPostAC = () => ({type: ADD_POST});
+export const updatePostAC = (textMessage) => ({type: UPDATE_NEW_POST_TEXT, newMessage: textMessage});
+export const setUserProfile = (usersData) => ({type: SET_USER_PROFILE_DATA, usersData});
 export default profileReducer;

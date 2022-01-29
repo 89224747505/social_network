@@ -1,7 +1,8 @@
 import React from "react";
 import classes from "./Users.module.css";
-import Spinner from '../../img/Spinner.svg';
 import Preloader from "../common/Preloader/Preloader";
+import MyButton from "../common/MyButton/MyButton";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
 
@@ -25,14 +26,15 @@ const Users = (props) => {
             <Preloader isFetching={props.isFetching}/>
             {
                 props.users.map(u => <div className={classes.wrapper} key={u.id}>
-                    <div>
-                        <div><img className={classes.img}
-                                  src={u.photos.small ? u.photos.small : "https://www.pngmart.com/files/10/Business-User-Account-PNG-Clipart.png"}/>
+                    <div className={classes.avatarFollow}>
+                        <div>
+                            <NavLink to={'/profile/' + u.id}><img className={classes.img} src={u.photos.small ? u.photos.small : "https://www.pngmart.com/files/10/Business-User-Account-PNG-Clipart.png"}/></NavLink>
                         </div>
                         <div className={classes.btn}>
                             {u.followed
-                                ? <button onClick={() => props.unfollow(u.id)}> Отписаться </button>
-                                : <button onClick={() => props.follow(u.id)}> Подписаться </button>}
+
+                                ? <MyButton onClick={() => props.unfollow(u.id)}> Отписаться </MyButton>
+                                : <MyButton onClick={() => props.follow(u.id)}> Подписаться </MyButton>}
                         </div>
                     </div>
                     <div className={classes.userForm}>

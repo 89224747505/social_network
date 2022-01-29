@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from "../../../img/Spinner.svg";
+import Spinner from "../../../img/Ellipsis.gif";
 
 const Preloader = (props) => {
     return (

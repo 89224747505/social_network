@@ -1,0 +1,27 @@
+.MyButton {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.MyButton > button {
+    font-size: 20px;
+    font-family: Calibri;
+    box-shadow: 0 0 10px 1px green;
+    border: 2px solid black;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    background: green;
+    color: white;
+}
+
+.MyButton > button:hover {
+    background: greenyellow;
+    color: black;
+}
+
+.MyButton > button:active {
+    background: cornflowerblue;
+    color: white;
+    box-shadow: none;
+}
