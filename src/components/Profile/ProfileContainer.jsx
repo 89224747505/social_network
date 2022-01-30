@@ -8,9 +8,8 @@ import {useParams} from "react-router-dom";
 const ProfileContainer = (props) => {
 
     const params = useParams();
-
     let userID = params['*'];
-    if (!userID) userID=2;
+    if (!userID && props.isAuth) userID=props.authUserId;
     useEffect(()=>{
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userID)
             .then(response => {props.setUserProfile({...response.data, currentUserProfile:userID});})
@@ -25,7 +24,9 @@ const ProfileContainer = (props) => {
 
 let mapStateToProps = (state) => (
     {
-    profile: state.profilePage.profile,
+        isAuth: state.auth.isAuth,
+        authUserId:state.auth.id,
+        profile: state.profilePage.profile,
 })
 
 

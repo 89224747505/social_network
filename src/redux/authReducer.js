@@ -1,21 +1,21 @@
 const SET_USER_DATA = "SET_USER_DATA";
 
-
 let initReducer = {
     userId: null,
     email: null,
     login: null,
-    isFetching: false,
+    isAuth: false,
 
 };
 
-
 const authReducer = (state = initReducer, action) => {
     switch (action.type) {
+
         case SET_USER_DATA:
             return  {
                 ...state,
-                ...action.data
+                ...action.userData,
+                isAuth: true,
             };
 
         default:
@@ -23,7 +23,6 @@ const authReducer = (state = initReducer, action) => {
     }
 }
 
-export const setUserData = (userData) => ({type: SET_USER_DATA, userData});
-
+export const setAuthUserData = (userData) => ({type: SET_USER_DATA, userData});
 
 export default authReducer;

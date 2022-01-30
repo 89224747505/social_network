@@ -3,6 +3,7 @@ import classes from "./Users.module.css";
 import Preloader from "../common/Preloader/Preloader";
 import MyButton from "../common/MyButton/MyButton";
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 const Users = (props) => {
 
@@ -30,12 +31,32 @@ const Users = (props) => {
                         <div>
                             <NavLink to={'/profile/' + u.id}><img className={classes.img} src={u.photos.small ? u.photos.small : "https://www.pngmart.com/files/10/Business-User-Account-PNG-Clipart.png"}/></NavLink>
                         </div>
-                        <div className={classes.btn}>
-                            {u.followed
+                        {props.authID !== u.id
+                            ? <div className={classes.btn}>
+                                {u.followed
+                                    ? <MyButton onClick={() => {
+                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                                            {withCredentials:true,
+                                                   headers:{ "API-KEY": "e3aae285-0b54-4a17-86c5-bdda90bd9e4c"}})
 
-                                ? <MyButton onClick={() => props.unfollow(u.id)}> Отписаться </MyButton>
-                                : <MyButton onClick={() => props.follow(u.id)}> Подписаться </MyButton>}
-                        </div>
+                                            .then(response => {
+                                                if (response.data.resultCode == 0) {
+                                                    props.unfollow(u.id)
+                                                }})
+                                    }}> Отписаться </MyButton>
+
+                                    : <MyButton onClick={() => {
+                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,null ,
+                                            {withCredentials:true,
+                                                    headers:{ "API-KEY": "e3aae285-0b54-4a17-86c5-bdda90bd9e4c"}})
+
+                                            .then(response => {
+                                                if (response.data.resultCode == 0) {
+                                                    props.follow(u.id)
+                                                }})
+                                    }}> Подписаться </MyButton>}
+                            </div>
+                            : <div style={{paddingLeft:"5px", fontWeight:'900'}}>Это ваш профиль</div>}
                     </div>
                     <div className={classes.userForm}>
                         <div>

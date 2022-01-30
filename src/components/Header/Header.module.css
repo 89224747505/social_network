@@ -20,3 +20,9 @@
 .loginBlock {
     margin-right: 35px;
 }
+.login {
+    color: red;
+    font-family: Roboto;
+    font-size: 20px;
+    border-bottom: 4px solid orange;
+}
