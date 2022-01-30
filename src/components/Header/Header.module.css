@@ -17,12 +17,6 @@
     background: url("https://upload.wikimedia.org/wikipedia/commons/1/1e/RPC-JP_Logo.png") center no-repeat;
     background-size: contain;
 }
-.menu {
-    width: 800px;
-    height: 50px;
-    display: flex;
-}
-.menu>div {
-    width:20%;
-    height: 40px;
+.loginBlock {
+    margin-right: 35px;
 }

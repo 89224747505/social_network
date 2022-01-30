@@ -1,29 +1,18 @@
 import React from 'react';
 import classes from "./NavBar.module.css";
 import {NavLink} from "react-router-dom";
+import NavItem from "../common/NavItem/NavItem";
 
 const NavBar = () => {
     return (
         <nav className={classes.NavBar}>
             <div className={classes.container}>
-                <div className={classes.item}>
-                    <NavLink className = { Bool => Bool.isActive ? classes.active : classes.item } to="/profile" >Profile</NavLink>
-                </div>
-                <div className={classes.item}>
-                    <NavLink className = { Bool => Bool.isActive ? classes.active : classes.item } to="/messages" >Messages</NavLink>
-                </div>
-                <div className={classes.item}>
-                    <NavLink className = { Bool => Bool.isActive ? classes.active : classes.item } to="/users" >Users</NavLink>
-                </div>
-                <div className={classes.item}>
-                    <NavLink className = { Bool => Bool.isActive ? classes.active : classes.item } to="/news" >News</NavLink>
-                </div>
-                <div className={classes.item}>
-                    <NavLink className = { Bool => Bool.isActive ? classes.active : classes.item } to="/music" >Music</NavLink>
-                </div>
-                <div className={classes.item}>
-                    <NavLink className = { Bool => Bool.isActive ? classes.active : classes.item } to="/settings" >Settings</NavLink>
-                </div>
+                <NavItem to="/profile">Profile</NavItem>
+                <NavItem to="/messages">Messages</NavItem>
+                <NavItem to="/users">Users</NavItem>
+                <NavItem to="/news">News</NavItem>
+                <NavItem to="/music">Music</NavItem>
+                <NavItem style={{marginTop:'35px'}} to="/settings">Settings</NavItem>
             </div>
         </nav>
     );

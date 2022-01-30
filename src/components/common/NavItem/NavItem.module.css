@@ -1,0 +1,22 @@
+.item a.active {
+    text-shadow: none;
+    color: coral;
+    border-bottom: none;
+
+}
+.item {
+    font-family: "Roboto Black";
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.item>a {
+    color: black;
+    text-decoration: none;
+}
+
+.item>a:hover {
+    color: coral;
+    border-bottom: 4px solid coral;
+}
