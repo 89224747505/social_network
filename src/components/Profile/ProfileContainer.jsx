@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import axios from "axios";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {setUserProfile} from '../../redux/profileReducer'
 import {useParams} from "react-router-dom";
+import {UserAPI} from "../../api/api";
 
 const ProfileContainer = (props) => {
 
@@ -11,8 +11,8 @@ const ProfileContainer = (props) => {
     let userID = params['*'];
     if (!userID && props.isAuth) userID=props.authUserId;
     useEffect(()=>{
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userID)
-            .then(response => {props.setUserProfile({...response.data, currentUserProfile:userID});})
+       UserAPI.getUserProfile(userID)
+            .then(data => {props.setUserProfile({...data, currentUserProfile:userID});})
     },[userID]);
 
     return (

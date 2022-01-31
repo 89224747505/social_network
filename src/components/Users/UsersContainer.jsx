@@ -1,17 +1,26 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {follow, setUsers, unfollow, setBlockBefore, setBlockAfter, setCurrentPage, setTotalCount, setIsFetching}  from "../../redux/userReducer";
-import axios from "axios";
+import {
+    follow,
+    setUsers,
+    unfollow,
+    setBlockBefore,
+    setBlockAfter,
+    setCurrentPage,
+    setTotalCount,
+    setIsFetching,
+    setFollowingInProgress
+} from "../../redux/userReducer";
 import Users from "./Users";
-import {getUsers} from "../../api/api";
+import {UserAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
         this.props.setIsFetching(true);
-        getUsers(this.props.currentPage, this.props.pageSize).then(response => {
-                this.props.setTotalCount(response.data.totalCount);
-                this.props.setUsers(response.data.items);
+        UserAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+                this.props.setTotalCount(data.totalCount);
+                this.props.setUsers(data.items);
                 this.props.setIsFetching(false);
             })
     }
@@ -19,8 +28,8 @@ class UsersContainer extends React.Component {
     onClickPageChanged = (el) =>{
         this.props.setIsFetching(true);
         this.props.setCurrentPage(el);
-        getUsers(el, this.props.pageSize).then(response => {
-                this.props.setUsers(response.data.items);
+        UserAPI.getUsers(el, this.props.pageSize).then(data => {
+                this.props.setUsers(data.items);
                 this.props.setIsFetching(false);
             })
     }
@@ -40,8 +49,10 @@ let mapStateToProps = (state) => {
         currentTwentyBlock: state.usersPage.currentTwentyBlock,
         isFetching: state.usersPage.isFetching,
         authID:state.auth.id,
+        followingInProgress: state.usersPage.followingInProgress,
+        followingUser: state.usersPage.followingUser,
     }
 };
 
 
-export default connect(mapStateToProps,{follow, unfollow, setUsers, setTotalCount, setBlockBefore, setBlockAfter, setCurrentPage, setIsFetching})(UsersContainer);
+export default connect(mapStateToProps,{follow, unfollow, setUsers, setTotalCount, setBlockBefore, setBlockAfter, setCurrentPage, setIsFetching, setFollowingInProgress})(UsersContainer);

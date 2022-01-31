@@ -25,3 +25,10 @@
     color: white;
     box-shadow: none;
 }
+.MyButton > button:disabled {
+    background:#AAAAAA;
+    color: white;
+    box-shadow: none;
+    border: 1px solid #000;
+    font-weight: 200;
+}

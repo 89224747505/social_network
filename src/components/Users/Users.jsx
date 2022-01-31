@@ -3,7 +3,7 @@ import classes from "./Users.module.css";
 import Preloader from "../common/Preloader/Preloader";
 import MyButton from "../common/MyButton/MyButton";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import {UserAPI} from "../../api/api";
 
 const Users = (props) => {
 
@@ -34,29 +34,25 @@ const Users = (props) => {
                         {props.authID !== u.id
                             ? <div className={classes.btn}>
                                 {u.followed
-                                    ? <MyButton onClick={() => {
-                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                                            {withCredentials:true,
-                                                   headers:{ "API-KEY": "e3aae285-0b54-4a17-86c5-bdda90bd9e4c"}})
-
-                                            .then(response => {
-                                                if (response.data.resultCode == 0) {
+                                    ? <MyButton disabled={props.followingInProgress && (u.id === props.followingUser)} onClick={() => {
+                                        props.setFollowingInProgress(true, u.id);
+                                        UserAPI.setUserUnFollow(u.id).then(data => {
+                                                if (data.resultCode == 0) {
+                                                    props.setFollowingInProgress(false, u.id);
                                                     props.unfollow(u.id)
                                                 }})
                                     }}> Отписаться </MyButton>
 
-                                    : <MyButton onClick={() => {
-                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,null ,
-                                            {withCredentials:true,
-                                                    headers:{ "API-KEY": "e3aae285-0b54-4a17-86c5-bdda90bd9e4c"}})
-
-                                            .then(response => {
-                                                if (response.data.resultCode == 0) {
+                                    : <MyButton disabled={props.followingInProgress && (u.id === props.followingUser)} onClick={() => {
+                                        props.setFollowingInProgress(true, u.id);
+                                        UserAPI.setUserFollow(u.id).then(data => {
+                                                if (data.resultCode == 0) {
+                                                    props.setFollowingInProgress(false, u.id);
                                                     props.follow(u.id)
                                                 }})
                                     }}> Подписаться </MyButton>}
                             </div>
-                            : <div style={{paddingLeft:"5px", fontWeight:'900'}}>Это ваш профиль</div>}
+                            : <div><MyButton disabled={true}>Ваш профиль</MyButton></div>}
                     </div>
                     <div className={classes.userForm}>
                         <div>
