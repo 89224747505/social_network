@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7727e93b-5d8a-4085-aee8-64a6faad35b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/followController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/profileController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/securityController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/usersController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/authRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/followRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/profileRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/securityRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/usersRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/error/apiError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/jsons/.profileReg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middleware/errorHandlingMiddleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/profileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/profileController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/usersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/usersController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/profileRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/profileRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/usersRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/usersRouter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,16 +42,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/package.json" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\project_react\social_network\server" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\project_react\social_network\server\static" />
       <recent name="C:\project_react\social_network" />
     </key>
   </component>
@@ -75,7 +79,13 @@
       <updated>1643776604585</updated>
       <workItem from="1643776607115" duration="1322000" />
       <workItem from="1643779236534" duration="4474000" />
-      <workItem from="1643797043132" duration="5030000" />
+      <workItem from="1643797043132" duration="5814000" />
+      <workItem from="1643810498189" duration="9947000" />
+      <workItem from="1643826253442" duration="3748000" />
+      <workItem from="1643863078684" duration="1336000" />
+      <workItem from="1643864724773" duration="6968000" />
+      <workItem from="1643872326735" duration="731000" />
+      <workItem from="1643886048469" duration="5669000" />
     </task>
     <servers />
   </component>
