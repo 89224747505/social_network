@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7727e93b-5d8a-4085-aee8-64a6faad35b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/error/apiError.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/jsons/.profileReg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/middleware/errorHandlingMiddleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/profileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/profileController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/usersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/usersController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/profileRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/profileRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/usersRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/usersRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/static/381991d2-f734-4cc1-bf32-bfb1700b168alarge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/static/381991d2-f734-4cc1-bf32-bfb1700b168asmall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/static/b9cb7b00-b184-40e9-8d95-b46f8174f112large.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/static/b9cb7b00-b184-40e9-8d95-b46f8174f112small.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +80,7 @@
       <workItem from="1643863078684" duration="1336000" />
       <workItem from="1643864724773" duration="6968000" />
       <workItem from="1643872326735" duration="731000" />
-      <workItem from="1643886048469" duration="5669000" />
+      <workItem from="1643886048469" duration="11524000" />
     </task>
     <servers />
   </component>

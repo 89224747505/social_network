@@ -3,6 +3,8 @@ const ApiError = require('../error/apiError');
 const uuid = require('uuid');
 const path = require('path');
 const sharp = require('sharp');
+const fs = require('fs')
+const {response} = require("express");
 
 class ProfileController {
 
@@ -33,21 +35,49 @@ class ProfileController {
 
     async setPhotoProfile(req, res, next) {
         const {userId} = req.body;
-        const {img} = req.files;
+        let photoResponse;
 
-        if (!userId) return next(ApiError.badRequest("Не указан ID пользователя. Измените параметр и сделайте новый запрос"));
+        if (!userId || !req.files) return next(ApiError.badRequest("Не указан ID пользователя или не прикреплен файл картинки. Измените параметр и сделайте новый запрос"));
+
+        const {image} = req.files;
+
+        if (!image) return next(ApiError.badRequest("Введите корректное имя свойства <<img>>"));
+
+        // Блок проверки и удаления файлов small/large из static, если значения не нулевые
+        try {
+            let oldPhotoPath;
+            oldPhotoPath = await Photo.findOne({where: {userId}});
+
+            const {small, large} = oldPhotoPath.dataValues;
+
+            if (small !== null) {
+            fs.unlink(path.resolve(__dirname,'..','static', small),(err)=>{
+                if (err) return next(ApiError.badRequest("Ошибка удаление small картинки"))})}
+
+            if (large !== null) {
+            fs.unlink(path.resolve(__dirname,'..','static', large),(err)=>{
+                if (err) return next(ApiError.badRequest("Ошибка удаление large картинки"))})}
+        }
+        catch (e){
+            return next(ApiError.internal("Ошибка удаления файлов с сервера"))
+        }
+
+
+        // -------------------------------------------------------------------
 
         let uuidMy = uuid.v4();
+        let fileNameSmallWithoutDir =  uuidMy + 'small.jpg';
+        let fileNameLargeWithoutDir =  uuidMy + 'large.jpg';
+        let fileNameLarge = path.resolve(__dirname, '..', 'static', fileNameLargeWithoutDir);
+        let fileNameSmall = path.resolve(__dirname, '..', 'static', fileNameSmallWithoutDir);
 
-        let fileNameLarge = path.resolve(__dirname, '..', 'static', uuidMy + 'large.jpg');
-        let fileNameSmall = path.resolve(__dirname, '..', 'static', uuidMy + 'small.jpg');
-
-        await img.mv(fileNameLarge);
+        await image.mv(fileNameLarge);
 
         await sharp(fileNameLarge).resize(100, 100).toFile(fileNameSmall, function(err) {
                 if (err) return next(ApiError.internal("Ошибка сервера. Запись в БД не удалась!!!"))});
-
-        res.status(200);
+        await Photo.update({small:fileNameSmallWithoutDir, large:fileNameLargeWithoutDir}, {where: {userId}})
+            .then(result => {res.status(200).json({message:'Все хорошо! Фотография загружена в БД'})})
+            .catch(err =>{return next(ApiError.internal("Ошибка сервера. Запись в БД не удалась!!!"))});
     }
 
     async setStatusProfile(req, res) {
