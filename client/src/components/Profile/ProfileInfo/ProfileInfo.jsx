@@ -10,10 +10,10 @@ const ProfileInfo = (props) => {
     return (
         <div>
             <div className={classes.imDesContainer}>
-                <img className={classes.imgDesktop} src={props.profile.photos.large} alt=""/>
+                <img className={classes.imgDesktop} src={props.baseURL+'images/'+props.profile.photos.large} alt=""/>
              </div>
             <div className={classes.avaDesBlock}>
-                <div className={classes.avatar} style={{ backgroundImage:`url(${props.profile.photos.small})` }}></div>
+                <div className={classes.avatar} style={{ backgroundImage:`url(${props.baseURL+'images/'+props.profile.photos.small})` }}></div>
                 <div className={classes.description}>
                     <h2>{props.profile.fullName}</h2>
                     <div>Нужна работа:<span style={{color: "red"}}>{props.profile.lookingForAJob ? " Да, конечно!!!" : " Нет, работа не требуется."}</span></div>

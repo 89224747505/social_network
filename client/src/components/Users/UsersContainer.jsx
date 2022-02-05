@@ -9,7 +9,8 @@ import {
     setCurrentPage,
     setTotalCount,
     setIsFetching,
-    setFollowingInProgress
+    setFollowingInProgress,
+    setBaseURL
 } from "../../redux/userReducer";
 import Users from "./Users";
 import {UserAPI} from "../../api/api";
@@ -20,6 +21,7 @@ class UsersContainer extends React.Component {
         this.props.setIsFetching(true);
         UserAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
                 this.props.setTotalCount(data.totalCount);
+                this.props.setBaseURL(data.baseURL);
                 this.props.setUsers(data.items);
                 this.props.setIsFetching(false);
             })
@@ -42,6 +44,7 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
+        baseURL:state.usersPage.baseURL,
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
@@ -55,4 +58,5 @@ let mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps,{follow, unfollow, setUsers, setTotalCount, setBlockBefore, setBlockAfter, setCurrentPage, setIsFetching, setFollowingInProgress})(UsersContainer);
+export default connect(mapStateToProps,{follow,
+    unfollow, setUsers, setTotalCount, setBaseURL, setBlockBefore, setBlockAfter, setCurrentPage, setIsFetching, setFollowingInProgress})(UsersContainer);

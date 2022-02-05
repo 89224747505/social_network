@@ -29,7 +29,7 @@ const Users = (props) => {
                 props.users.map(u => <div className={classes.wrapper} key={u.id}>
                     <div className={classes.avatarFollow}>
                         <div>
-                            <NavLink to={'/profile/' + u.id}><img className={classes.img} src={u.photos.small ? u.photos.small : "https://www.pngmart.com/files/10/Business-User-Account-PNG-Clipart.png"}/></NavLink>
+                            <NavLink to={'/profile/' + u.id}><img className={classes.img} src={u.photos.small ? props.baseURL+'images/'+u.photos.small : "https://www.pngmart.com/files/10/Business-User-Account-PNG-Clipart.png"}/></NavLink>
                         </div>
                         {props.authID !== u.id
                             ? <div className={classes.btn}>

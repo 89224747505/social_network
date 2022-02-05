@@ -8,12 +8,18 @@ const PORT = process.env.PORT || 3000;
 const router = require('./routes/index');
 const errorHandler = require('./middleware/errorHandlingMiddleware');
 const path = require('path');
+const corsOptions = {
+    origin:'http://localhost:3000',
+    credentials:true,
+    optionsSuccessStatus: 200
+}
+
 
 const app = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, 'static')));
+app.use('/api/images',express.static(path.resolve(__dirname, 'static')));
 app.use(fileUpload({}));
 app.use('/api', router);
 

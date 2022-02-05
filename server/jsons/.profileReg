@@ -1,3 +1,5 @@
+registration
+
 {
     "login": "89224747505",
     "password":"BAST8495",
@@ -17,4 +19,11 @@
         "youtube":"null",
         "mainLink":"null"
     }
+}
+
+status
+
+{
+    "id":"10",
+    "status":"не хочу"
 }

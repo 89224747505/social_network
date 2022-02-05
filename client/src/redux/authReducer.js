@@ -1,10 +1,10 @@
 const SET_USER_DATA = "SET_USER_DATA";
 
 let initReducer = {
-    userId: null,
+    userId: 1,
     email: null,
-    login: null,
-    isAuth: false,
+    login: 'asdfasdf',
+    isAuth: true,
 
 };
 

@@ -7,16 +7,18 @@ const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
+const SET_BASE_URL = 'SET_BASE_URL';
 
 let initReducer = {
     users:[],
     totalUsersCount:0,
-    pageSize:100,
+    pageSize:3,
     currentPage:1,
     currentTwentyBlock:0,
     isFetching:true,
     followingInProgress: false,
     followingUser: null,
+    baseURL:'',
 };
 
 
@@ -75,6 +77,9 @@ const userReducer = (state = initReducer, action) => {
         case TOGGLE_IS_FOLLOWING_PROGRESS:
             return {...state, followingInProgress: action.stateFollowingProgress, followingUser: action.userID};
 
+        case SET_BASE_URL:
+            return {...state, baseURL: action.baseURL};
+
         default:
             return state;
     }
@@ -88,6 +93,7 @@ export const setBlockBefore = () => ({type: SET_BLOCK_BEFORE});
 export const setBlockAfter = () => ({type: SET_BLOCK_AFTER});
 export const setCurrentPage = (current) => ({type: SET_CURRENT_PAGE, current});
 export const setIsFetching = (stateIsFetching) => ({type: TOGGLE_IS_FETCHING, stateIsFetching});
-export const setFollowingInProgress = (stateFollowingProgress,userID) => ({type:TOGGLE_IS_FOLLOWING_PROGRESS , stateFollowingProgress, userID});
+export const setFollowingInProgress = (stateFollowingProgress,userID) => ({type:TOGGLE_IS_FOLLOWING_PROGRESS, stateFollowingProgress, userID});
+export const setBaseURL = (baseURL) => ({type:SET_BASE_URL, baseURL});
 
 export default userReducer;
