@@ -14,6 +14,7 @@ export const UserAPI = {
     async getUsers (currentPage = 1, pageSize = 10) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => {
+                debugger
                 response.data.baseURL = bURL;
                 return response.data});
     },

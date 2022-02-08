@@ -11,6 +11,7 @@ const User = sequelize.define('users',{
     status:{type:DataTypes.STRING, allowNull: true},
     lookingForAJob:{type: DataTypes.BOOLEAN, defaultValue: 'false'},
     lookingForAJobDescription:{type: DataTypes.STRING, allowNull: true},
+    jwt:{type:DataTypes.STRING, allowNull: true},
 });
 
 const Photo = sequelize.define('photo', {

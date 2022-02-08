@@ -3,7 +3,9 @@ const ApiError = require('../error/apiError');
 const uuid = require('uuid');
 const path = require('path');
 const sharp = require('sharp');
-const fs = require('fs')
+const fs = require('fs');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 //async registration(req, res, next) - функция регистрации нового пользователя
 //async setPhotoProfile(req, res, next) - функция установки фотографии пользователя
@@ -30,11 +32,28 @@ class ProfileController {
                 lookingForAJobDescription} = newUserProfile;
         const {github, vk, facebook, instagram, twitter, website, youtube, mainLink} = newUserProfile.contacts;
 
+        //Проверяем заполненность пароля и email и логина
+
+        if (!email || !password || !login) return next(ApiError.badRequest("Неверно введеные логин, почта или пароль!"));
+
+        //Делаем запрос в БД на наличие пользователей с таким e-mail и логином
+
+        const candidateMail = await User.findOne({where:{email}});
+        const candidateLogin = await User.findOne({where:{login}});
+
+        //Если пользователи с таким емаил существуют, тогда отправить ошибку с выбором другого емайла
+
+        if (candidateMail || candidateLogin) return next(ApiError.badRequest("Пользователь с таким e-mail или логин уже существует. Выберите другой!"));
+
+        //Шифруем переданный нам пароль
+
+        const hashPassword = await bcrypt.hash(password, 5);
+
         // Запись данных в 3 таблицы БД------------------------------------------------------------------
 
         try {
-            userResponse = await User.create({login, password, email, name, fullName, status,
-                                                    lookingForAJob, lookingForAJobDescription})
+            userResponse = await User.create({login, password:hashPassword, email, name, fullName, status,
+                                                    lookingForAJob, lookingForAJobDescription, jwt:null})
             contactResponse = await Contacts.create({github, vk, facebook, instagram, twitter,
                                                             website, youtube, mainLink, userId:userResponse.id})
             photoResponse = await Photo.create({small:null, large:null, userId:userResponse.id})
@@ -43,10 +62,20 @@ class ProfileController {
             return next(ApiError.internal("Ошибка сервера. Запись в БД не удалась!!!"))
         }
 
+        //Создание JWT токена
+
+        const jwtToken = jwt.sign({id:userResponse.dataValues.id, login:userResponse.dataValues.login},
+            process.env.SECRET_JWT_KEY,{expiresIn:'24h'});
+
+        //Добавляем токен в БД
+
+        let userToken = await User.update({jwt:jwtToken},{where:{id:userResponse.dataValues.id}})
+
         // Оправка ответа если все прошло хорошо и запись в БД состоялась успешно
 
         res.status(200).json({ user:userResponse.dataValues, contacts:contactResponse.dataValues,
-                            photo:photoResponse.dataValues, message:"Все данные получены! Новый пользователь создан!"})
+                           photo:photoResponse.dataValues, message:"Все данные получены! Новый пользователь создан!",
+                           jwt:jwtToken});
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     async setPhotoProfile(req, res, next) {
@@ -242,7 +271,8 @@ module.exports = new ProfileController();
 //         "updatedAt": "2022-02-05T06:21:27.663Z",
 //         "createdAt": "2022-02-05T06:21:27.663Z"
 // },
-//     "message": "Все данные получены! Новый пользователь создан!"
+//     "message": "Все данные получены! Новый пользователь создан!",
+//     "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImxvZ2luIjoiZmYiLCJpYXQiOjE2NDQxMzg5MTAsImV4cCI6MTY0NDIyNTMxMH0.2ZH0I9F742q2bc0muvZIEB-79FfFOHaJrdKX1fCpPfw"
 // }
 
 // request PUT - http://localhost:5000/api/profile/photo

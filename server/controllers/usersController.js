@@ -1,9 +1,9 @@
 const {User, Photo} = require('../models/models')
 const ApiError = require('../error/apiError')
 
+
 class UsersController {
     async getUsers(req, res, next) {
-
         let {count, page} = req.query;
         page = page || 1;
         count = count || 10;
@@ -15,7 +15,6 @@ class UsersController {
             const usersResponse = await User.findAndCountAll({limit: count, offset: offset})
 
             //Перебираем массив элементов полученный из usersResponse в массиве row
-            console.log(usersResponse)
             let idArray=[];
             usersResponse.rows.forEach(user => idArray.push(user.id))
 
