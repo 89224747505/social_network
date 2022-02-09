@@ -5,39 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7727e93b-5d8a-4085-aee8-64a6faad35b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/middleware/authMiddleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/profileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/profileController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/usersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/usersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/followController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/followController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/authRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/authRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/035202a9-43e5-4ec7-b984-e623a1d59cc2large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/035202a9-43e5-4ec7-b984-e623a1d59cc2small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/24027dd1-7961-407d-988e-2d36d3550b5flarge.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/24027dd1-7961-407d-988e-2d36d3550b5fsmall.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/3d7e2f81-b174-4fb1-926c-0f867d8d88balarge.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/3d7e2f81-b174-4fb1-926c-0f867d8d88basmall.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/4885bbcf-41e1-4a1c-847a-2cebe98a0a33large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/4885bbcf-41e1-4a1c-847a-2cebe98a0a33small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/4b1290b7-c1e3-483a-b0e1-f0d1038d9cf3large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/4b1290b7-c1e3-483a-b0e1-f0d1038d9cf3small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/78681393-48c7-49cf-8f90-ee66c0ba6e66large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/78681393-48c7-49cf-8f90-ee66c0ba6e66small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/96c95ba9-407b-4917-b31b-279128a016b0large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/96c95ba9-407b-4917-b31b-279128a016b0small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/ea09dae1-4c0b-400c-a0d7-3cba913bca84large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/ea09dae1-4c0b-400c-a0d7-3cba913bca84small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/f299cb45-f80d-4ebb-9d09-d11ed6b12556large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/f299cb45-f80d-4ebb-9d09-d11ed6b12556small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/f3ee9a3b-e169-413b-80f5-895df22f6d35large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/f3ee9a3b-e169-413b-80f5-895df22f6d35small.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/f68648a8-8c95-47e9-94d8-f212767be126large.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/f68648a8-8c95-47e9-94d8-f212767be126small.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/followRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/followRouter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +87,8 @@
       <workItem from="1644231539371" duration="6000" />
       <workItem from="1644231583828" duration="5000" />
       <workItem from="1644296478824" duration="7563000" />
+      <workItem from="1644323857956" duration="86000" />
+      <workItem from="1644387498240" duration="4574000" />
     </task>
     <servers />
   </component>

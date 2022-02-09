@@ -34,7 +34,8 @@ const Contacts = sequelize.define('contacts', {
 
 const Followed = sequelize.define('followed', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    followedUserId: {type: DataTypes.BOOLEAN, defaultValue: 'false'},
+    userId: {type: DataTypes.INTEGER, allowNull:false},
+    followedUserId: {type: DataTypes.INTEGER, allowNull:false},
 });
 
 User.hasOne(Photo);
