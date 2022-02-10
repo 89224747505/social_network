@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7727e93b-5d8a-4085-aee8-64a6faad35b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/followController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/followController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.dd44c0e5a9bf9f290cfd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.dd44c0e5a9bf9f290cfd.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +93,8 @@
       <workItem from="1644323857956" duration="86000" />
       <workItem from="1644387498240" duration="4711000" />
       <workItem from="1644405666323" duration="7322000" />
-      <workItem from="1644421359281" duration="9103000" />
+      <workItem from="1644421359281" duration="9625000" />
+      <workItem from="1644468927188" duration="1861000" />
     </task>
     <servers />
   </component>
