@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {setUserProfile} from '../../redux/profileReducer'
+import {getUserProfileThunk, setUserProfile} from '../../redux/profileReducer'
 import {useParams} from "react-router-dom";
-import {UserAPI} from "../../api/api";
 
 const ProfileContainer = (props) => {
 
@@ -11,8 +10,7 @@ const ProfileContainer = (props) => {
     let userID = params['*'];
     if (!userID && props.isAuth) userID=props.authUserId;
     useEffect(()=>{
-       UserAPI.getUserProfile(userID)
-            .then(data => {props.setUserProfile({...data, currentUserProfile:userID});})
+       props.getUserProfileThunk(userID);
     },[userID]);
 
     return (
@@ -25,13 +23,13 @@ const ProfileContainer = (props) => {
 let mapStateToProps = (state) => (
     {
         isAuth: state.auth.isAuth,
-        authUserId:state.auth.id,
+        authUserId:state.auth.idAuth,
         profile: state.profilePage.profile,
         baseURL:state.usersPage.baseURL,
 })
 
 
-export default connect(mapStateToProps, {setUserProfile})(ProfileContainer);
+export default connect(mapStateToProps, {setUserProfile, getUserProfileThunk})(ProfileContainer);
 
 
 

@@ -5,13 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7727e93b-5d8a-4085-aee8-64a6faad35b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Login/Login.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.dd44c0e5a9bf9f290cfd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.dd44c0e5a9bf9f290cfd.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/HeaderContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Users/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Users/Users.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Users/Users.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Users/Users.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/profileReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reduxStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/userReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/authMiddleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +109,10 @@
       <workItem from="1644387498240" duration="4711000" />
       <workItem from="1644405666323" duration="7322000" />
       <workItem from="1644421359281" duration="9625000" />
-      <workItem from="1644468927188" duration="1861000" />
+      <workItem from="1644468927188" duration="2839000" />
+      <workItem from="1644487098986" duration="16953000" />
+      <workItem from="1644640762138" duration="11616000" />
+      <workItem from="1644666014851" duration="10125000" />
     </task>
     <servers />
   </component>

@@ -13,7 +13,7 @@ module.exports = async function (req, res, next) {
 
         //Если кода jwt нет выдаем ошибку авторизации
 
-        if (!token) return res.status(401).json({message:"Пользователь не авторизован"});
+        if (!token) return res.status(401).json({message:false});
 
         //Декодируем и проверяем токен
 
@@ -25,13 +25,13 @@ module.exports = async function (req, res, next) {
 
         //Если токен из БД не совпадает с токеном из запроса, то выдаем ошибку авторизации
 
-        if (candidateAuth.jwt !== token) return res.status(401).json({message:"Пользователь не авторизован!"});
+        if (candidateAuth.jwt !== token) return res.status(401).json({message:false});
 
         //Передаем данные из декодированного токена в req и вызываем функцию next
 
         req.user = decodedJwt;
         next();
     }catch (e){
-        return res.status(401).json({message:"Пользователь не авторизован!"})
+        return res.status(401).json({message:false})
     }
 }

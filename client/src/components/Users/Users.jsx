@@ -4,6 +4,7 @@ import Preloader from "../common/Preloader/Preloader";
 import MyButton from "../common/MyButton/MyButton";
 import {NavLink} from "react-router-dom";
 import {UserAPI} from "../../api/api";
+import {setUserFollowThunk} from "../../redux/userReducer";
 
 const Users = (props) => {
 
@@ -35,21 +36,11 @@ const Users = (props) => {
                             ? <div className={classes.btn}>
                                 {u.followed
                                     ? <MyButton disabled={props.followingInProgress && (u.id === props.followingUser)} onClick={() => {
-                                        props.setFollowingInProgress(true, u.id);
-                                        UserAPI.setUserUnFollow(u.id).then(data => {
-                                                if (data.resultCode == 0) {
-                                                    props.setFollowingInProgress(false, u.id);
-                                                    props.unfollow(u.id)
-                                                }})
+                                        props.setUserFollowThunk(u.id,"UNFOLLOW");
                                     }}> Отписаться </MyButton>
 
                                     : <MyButton disabled={props.followingInProgress && (u.id === props.followingUser)} onClick={() => {
-                                        props.setFollowingInProgress(true, u.id);
-                                        UserAPI.setUserFollow(u.id).then(data => {
-                                                if (data.resultCode == 0) {
-                                                    props.setFollowingInProgress(false, u.id);
-                                                    props.follow(u.id)
-                                                }})
+                                        props.setUserFollowThunk(u.id, "FOLLOW");
                                     }}> Подписаться </MyButton>}
                             </div>
                             : <div><MyButton disabled={true}>Ваш профиль</MyButton></div>}

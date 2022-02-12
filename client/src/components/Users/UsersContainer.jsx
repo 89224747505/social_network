@@ -2,15 +2,13 @@ import React from 'react';
 import {connect} from "react-redux";
 import {
     follow,
-    setUsers,
     unfollow,
     setBlockBefore,
     setBlockAfter,
     setCurrentPage,
-    setTotalCount,
-    setIsFetching,
     setFollowingInProgress,
-    setBaseURL
+    getUsersThunk,
+    setUserFollowThunk
 } from "../../redux/userReducer";
 import Users from "./Users";
 import {UserAPI} from "../../api/api";
@@ -18,22 +16,12 @@ import {UserAPI} from "../../api/api";
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.setIsFetching(true);
-        UserAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-                this.props.setTotalCount(data.totalCount);
-                this.props.setBaseURL(data.baseURL);
-                this.props.setUsers(data.items);
-                this.props.setIsFetching(false);
-            })
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
     }
 
     onClickPageChanged = (el) =>{
-        this.props.setIsFetching(true);
         this.props.setCurrentPage(el);
-        UserAPI.getUsers(el, this.props.pageSize).then(data => {
-                this.props.setUsers(data.items);
-                this.props.setIsFetching(false);
-            })
+        this.props.getUsersThunk(el, this.props.pageSize);
     }
 
     render() {
@@ -51,12 +39,12 @@ let mapStateToProps = (state) => {
         currentPage:state.usersPage.currentPage,
         currentTwentyBlock: state.usersPage.currentTwentyBlock,
         isFetching: state.usersPage.isFetching,
-        authID:state.auth.id,
+        authID:state.auth.idAuth,
         followingInProgress: state.usersPage.followingInProgress,
         followingUser: state.usersPage.followingUser,
     }
 };
 
 
-export default connect(mapStateToProps,{follow,
-    unfollow, setUsers, setTotalCount, setBaseURL, setBlockBefore, setBlockAfter, setCurrentPage, setIsFetching, setFollowingInProgress})(UsersContainer);
+export default connect(mapStateToProps,{follow, unfollow, setBlockBefore, setBlockAfter,
+                                        setCurrentPage, setFollowingInProgress, getUsersThunk, setUserFollowThunk})(UsersContainer);

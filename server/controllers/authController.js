@@ -21,24 +21,25 @@ class AuthController {
         let userToken = await User.update({jwt:jwtToken},{where:{id:req.user.id}})
 
         //Отправляем данные о пользователе и новый токен
-        res.status(200).json({message:`Пользователь id=${req.user.id}, login=${req.user.login} авторизован`, jwt:jwtToken})
+        res.status(200).json({message:true, id:req.user.id, login:req.user.login, jwt:jwtToken})
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     async setLoginUser (req, res, next) {
         const {email, login, password} = req.body;
         // Ищем в БД соответствие пользователя логину и емайлу
 
-        const userLogin = await User.findOne({where:{login}});
-        const userEmail = await User.findOne({where:{email}});
+        const user = await User.findAll({where:{login,email}});
 
         //Если пользователь не найден по емайлу или логину, то оправить ошибку клиенту
 
-        if (!userLogin || !userEmail) return next(ApiError.badRequest("Пользователь с таким login и email не найден"));
+        if (typeof user[0] == "undefined") return next(ApiError.badRequest("Пользователь с таким login и email не найден"));
+
+        if (!user[0].login || !user[0].email) return next(ApiError.badRequest("Пользователь с таким login и email не найден"));
 
         //Проверка и декодирование пароля который записан в БД
 
-        let comparePassword = bcrypt.compareSync(password, userLogin.dataValues.password);
-        console.log(comparePassword);
+        let comparePassword = bcrypt.compareSync(password, user[0].password);
+
 
         //Проверяем совпадение паролей, если не совпадают ошибка передается клиенту
 
@@ -46,16 +47,16 @@ class AuthController {
 
         //Создание JWT токена
 
-        const jwtToken = jwt.sign({id:userLogin.dataValues.id, login:userLogin.dataValues.login},
+        const jwtToken = jwt.sign({id:user[0].id, login:user[0].login},
             process.env.SECRET_JWT_KEY,{expiresIn:'24h'});
 
         //Записываем в БД jwt токен
 
-        let userToken = await User.update({jwt:jwtToken},{where:{id:userLogin.dataValues.id}})
+        let userToken = await User.update({jwt:jwtToken},{where:{id:user[0].id}})
 
         // Оправка ответа если все прошло хорошо и мы залогинились
 
-        res.status(200).json({ message:"Все данные получены! Пользователь залогинен!", jwt:jwtToken});
+        res.status(200).json({ message:"Все данные получены! Пользователь залогинен!", jwt:jwtToken, id:user[0].id});
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     async setAuthUserDisable (req, res) {
@@ -74,7 +75,9 @@ module.exports = new AuthController();
 //                                           M5ODgsImV4cCI6MTY0NDM5MDM4OH0.Rzhd-vVMnNc_Sie38MTxGnhv-dSXzbv8BQhFWNKq44Y"}
 //response
 // {
-//     "message": "Пользователь id=1, login=Nikita авторизован",
+//     "message": "true",
+//     "id": 1,
+//     "login":"Ivan",
 //     "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJOaWtpdGEiLCJpYXQiOjE2NDQzMDQwMTIsImV4cCI6MTY0NDM5MDQxMn0.Uicyfat-yWM1W-1NrbElos7_sFWI6ZfxaMuIiZ8MIdA"
 // }
 
@@ -87,6 +90,7 @@ module.exports = new AuthController();
 //response
 //{
 //     "message": "Все данные получены! Пользователь залогинен!",
+//     "id": 5,
 //     "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJOaWtpdGEiLCJpYXQiOjE2NDQzMDI3NTgsImV4cCI6MTY0NDM4OTE1OH0.LUGQ12ghDiYJDaR7ovv02gLVxyCGZd6eJF_utVg9zx8"
 // }
 

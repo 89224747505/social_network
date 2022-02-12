@@ -1,3 +1,6 @@
+import {UserAPI} from "../api/api";
+import {setBaseURL} from "./userReducer";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE_DATA = "SET_USER_PROFILE_DATA";
@@ -55,4 +58,13 @@ const profileReducer = (state = initReducer, action) => {
 export const addPostAC = () => ({type: ADD_POST});
 export const updatePostAC = (textMessage) => ({type: UPDATE_NEW_POST_TEXT, newMessage: textMessage});
 export const setUserProfile = (usersData) => ({type: SET_USER_PROFILE_DATA, usersData});
+
+export const getUserProfileThunk = (userID) => (dispatch) => {
+
+    UserAPI.getUserProfile(userID)
+        .then(data => {
+            dispatch(setUserProfile({...data, currentUserProfile:userID}));
+            dispatch(setBaseURL(data.baseURL));
+        })
+}
 export default profileReducer;
