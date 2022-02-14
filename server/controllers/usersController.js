@@ -1,4 +1,4 @@
-const {User, Photo} = require('../models/models')
+const {User, Photo, Followed} = require('../models/models')
 const ApiError = require('../error/apiError')
 
 
@@ -25,10 +25,23 @@ class UsersController {
 
             let items =[];
 
+            //Получаем данные о подписках на пользователей на данной странице поиска из выборки массива idArray
+            const followResponse = await Followed.findAll({where:{followedUserId:idArray}})
+
             //Перебираем массив пользователей для создания массива items
 
             usersResponse.rows.forEach(user =>{
-                let sphoto, lphoto;
+                let sphoto, lphoto, follow=false;
+
+            //Перебираем массив с данными о подписках ищем соотношение авторизованного пользователя с подписчиками
+
+                followResponse.forEach(element => {
+                    if ((element.dataValues.followedUserId === user.id)
+                      &&(element.dataValues.userId === req.user.id)) {
+                        follow = true;
+                    }
+                })
+
 
             //Перебираем массив с данными о фото и по пользователю ищем большую и маленькую картинки
 
@@ -41,7 +54,7 @@ class UsersController {
 
             //Формируем массив items для ответа клиенту
 
-                items.push({name:user.name, id:user.id, photos:{small:sphoto, large:lphoto}, status:user.status, followed:false});
+                items.push({name:user.name, id:user.id, photos:{small:sphoto, large:lphoto}, status:user.status, followed:follow});
             })
 
             res.status(200).json({items:items, totalCount:usersResponse.count, error:null});

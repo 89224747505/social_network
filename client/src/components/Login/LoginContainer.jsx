@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Login from "./Login";
 import {connect} from "react-redux";
 import {updateEmailText, updateLoginText, updatePasswordText, getUserLoginThunk} from "../../redux/authReducer";
-import {UserAPI} from "../../api/api";
+
 
 class LoginContainer extends Component {
 

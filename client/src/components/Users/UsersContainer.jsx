@@ -11,17 +11,20 @@ import {
     setUserFollowThunk
 } from "../../redux/userReducer";
 import Users from "./Users";
-import {UserAPI} from "../../api/api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import compose from "lodash/fp/compose";
+
+
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize, this.props.jwt);
     }
 
-    onClickPageChanged = (el) =>{
-        this.props.setCurrentPage(el);
-        this.props.getUsersThunk(el, this.props.pageSize);
+    onClickPageChanged = (currentPage) =>{
+        this.props.setCurrentPage(currentPage);
+        this.props.getUsersThunk(currentPage, this.props.pageSize, this.props.jwt);
     }
 
     render() {
@@ -40,11 +43,14 @@ let mapStateToProps = (state) => {
         currentTwentyBlock: state.usersPage.currentTwentyBlock,
         isFetching: state.usersPage.isFetching,
         authID:state.auth.idAuth,
+        jwt: state.auth.jwt,
         followingInProgress: state.usersPage.followingInProgress,
         followingUser: state.usersPage.followingUser,
     }
 };
 
-
-export default connect(mapStateToProps,{follow, unfollow, setBlockBefore, setBlockAfter,
-                                        setCurrentPage, setFollowingInProgress, getUsersThunk, setUserFollowThunk})(UsersContainer);
+export default compose(
+    connect(mapStateToProps, {follow, unfollow, setBlockBefore, setBlockAfter,
+        setCurrentPage, setFollowingInProgress, getUsersThunk, setUserFollowThunk}),
+    withAuthRedirect
+)(UsersContainer);

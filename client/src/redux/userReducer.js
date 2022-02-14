@@ -98,11 +98,11 @@ export const setIsFetching = (stateIsFetching) => ({type: TOGGLE_IS_FETCHING, st
 export const setFollowingInProgress = (stateFollowingProgress,userID) => ({type:TOGGLE_IS_FOLLOWING_PROGRESS, stateFollowingProgress, userID});
 export const setBaseURL = (baseURL) => ({type:SET_BASE_URL, baseURL});
 
-export const getUsersThunk = (currentPage, pageSize) => (dispatch) => {
+export const getUsersThunk = (currentPage, pageSize, jwt) => (dispatch) => {
 
     dispatch(setIsFetching(true));
 
-    UserAPI.getUsers(currentPage, pageSize).then(data => {
+    UserAPI.getUsers(currentPage, pageSize, jwt).then(data => {
 
         dispatch(setTotalCount(data.totalCount));
         dispatch(setBaseURL(data.baseURL));
@@ -111,24 +111,22 @@ export const getUsersThunk = (currentPage, pageSize) => (dispatch) => {
     })
 }
 
-export const setUserFollowThunk = (userId, type) => (dispatch) => {
+export const setUserFollowThunk = (userId, type, jwt) => (dispatch) => {
     dispatch(setFollowingInProgress(true, userId));
 
     if (type === "UNFOLLOW") {
-    UserAPI.setUserUnFollow(userId)
+    UserAPI.setUserUnFollow(userId, jwt)
         .then(data => {
-            if (data.resultCode == 0) {
             dispatch(setFollowingInProgress(false, userId));
             dispatch(unfollow(userId));
-        }})}
+        })}
 
     if (type === "FOLLOW") {
-        UserAPI.setUserFollow(userId)
-            .then(data => {
-                if (data.resultCode == 0) {
-                    dispatch(setFollowingInProgress(false, userId));
-                    dispatch(follow(userId));
-                }})}
+    UserAPI.setUserFollow(userId, jwt)
+        .then(data => {
+            dispatch(setFollowingInProgress(false, userId));
+            dispatch(follow(userId));
+        })}
 }
 
 export default userReducer;

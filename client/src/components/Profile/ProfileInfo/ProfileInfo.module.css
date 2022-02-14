@@ -1,7 +1,6 @@
 .imDesContainer {
     width: 100%;
     border: 5px solid #000;
-
     margin: 0 auto;
 }
 
@@ -10,9 +9,31 @@
 
 }
 
+.nameStatus {
+    width: 40%;
+}
+
+.fullname {
+    font-family: Roboto;
+    font-size: 30px;
+    color: red;
+}
+
+.status {
+    font-size: 20px;
+    width: 400px;
+    height: 200px;
+    resize: none;
+}
+
+.status:hover {
+    cursor: pointer;
+}
+
 .avaDesBlock {
     margin-top: 20px;
     display: flex;
+    justify-content: space-between;
 }
 
 .avatar {
@@ -24,15 +45,13 @@
     background-size: contain;
 }
 .description {
-    margin-left: 40px;
+    margin-left: 10px;
+    width: 35%;
 }
-.description>h2 {
-    font-family: "Roboto Black";
-    font-size: 30px;
-}
+
 .description>div {
-    font-family: Arial;
-    font-size: 16px;
+    font-family: Roboto;
+    font-size: 14px;
     font-weight: 700;
     line-height: 25px;
 }

@@ -16,9 +16,13 @@ const Login = (props) => {
             <div><input onChange={getChangeEmail} type="text" placeholder="Введите e-mail" value={props.email}/></div>
             <div><input onChange={getChangePassword} type="password" placeholder="Введите пароль" value={props.password}/></div>
             <MyButton onClick={props.getUserDataAuth} style={{width:"200px"}}>Авторизоваться</MyButton>
+
+            {!props.isAuth
+                ? <div>Пользователь не авторизован</div>
+                : <div>Пользователь авторизован</div>}
             {props.errorAuth
                 ? <div>Ошибка авторизации</div>
-                : <div>Пользователь авторизован</div>}
+                : null}
         </div>
     );
 };

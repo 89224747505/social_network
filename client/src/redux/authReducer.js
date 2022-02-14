@@ -1,4 +1,5 @@
 import {UserAPI} from "../api/api";
+import React from "react";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const AUTH_USER_DATA = "AUTH_USER_DATA";

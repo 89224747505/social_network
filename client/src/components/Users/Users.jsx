@@ -3,8 +3,6 @@ import classes from "./Users.module.css";
 import Preloader from "../common/Preloader/Preloader";
 import MyButton from "../common/MyButton/MyButton";
 import {NavLink} from "react-router-dom";
-import {UserAPI} from "../../api/api";
-import {setUserFollowThunk} from "../../redux/userReducer";
 
 const Users = (props) => {
 
@@ -19,13 +17,16 @@ const Users = (props) => {
 
     return (
         <div className={classes.container}>
+            {/*Отприсовывает страницы пагинации изходя из общего числа пользователей*/}
             <div className={classes.pagenation}>
                 <div onClick={props.setBlockBefore}>&#60;</div>
                 {pages.map(el => <div onClick={() => props.onClickPageChanged(el)}
                                       className={(props.currentPage === el) && classes.selectedPage}>{el}</div>)}
                 <div onClick={props.setBlockAfter}>&#62;</div>
             </div>
+
             <Preloader isFetching={props.isFetching}/>
+
             {
                 props.users.map(u => <div className={classes.wrapper} key={u.id}>
                     <div className={classes.avatarFollow}>
@@ -36,11 +37,11 @@ const Users = (props) => {
                             ? <div className={classes.btn}>
                                 {u.followed
                                     ? <MyButton disabled={props.followingInProgress && (u.id === props.followingUser)} onClick={() => {
-                                        props.setUserFollowThunk(u.id,"UNFOLLOW");
+                                        props.setUserFollowThunk(u.id,"UNFOLLOW",props.jwt);
                                     }}> Отписаться </MyButton>
 
                                     : <MyButton disabled={props.followingInProgress && (u.id === props.followingUser)} onClick={() => {
-                                        props.setUserFollowThunk(u.id, "FOLLOW");
+                                        props.setUserFollowThunk(u.id, "FOLLOW", props.jwt);
                                     }}> Подписаться </MyButton>}
                             </div>
                             : <div><MyButton disabled={true}>Ваш профиль</MyButton></div>}

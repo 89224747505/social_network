@@ -1,6 +1,8 @@
 import {addMessageAC, updateMessageAC} from "../../redux/messageReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import compose from "lodash/fp/compose";
 
 let mapStateToProps = (state) => {
     return {
@@ -17,7 +19,7 @@ let mapDispatchToProps = (dispatch) => {
 
 }
 
-const DialogsContainer = connect (mapStateToProps, mapDispatchToProps)(Dialogs);
-
-
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs);
