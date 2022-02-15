@@ -21,8 +21,34 @@
     margin-right: 35px;
 }
 .login {
+    position:relative;
     color: red;
     font-family: Roboto;
     font-size: 20px;
     border-bottom: 4px solid red;
+}
+.activeForm {
+    position: absolute;
+    top:30px;
+    right:0;
+    width: 100px;
+    height: 80px;
+    border: 1px solid #000;
+    background: greenyellow;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px black;
+}
+.listElement {
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+}
+.activeForm>a {
+    text-decoration: none;
+}
+.disableForm {
+    display: none;
 }

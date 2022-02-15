@@ -39,6 +39,13 @@ export const UserAPI = {
                 return response.data})
     },
 
+    async setUserLogOut (jwt) {
+        return axios.create({baseURL: bURL,withCredentials:true, headers:{Authorization:"Bearer "+jwt}})
+            .delete("auth/login")
+            .then(response =>{
+                return response.data})
+    },
+
     async setUserStatus (userID = 1, status="") {
         return axios.create({baseURL: bURL,withCredentials:true})
             .put(`profile/status`,{id: userID, status})

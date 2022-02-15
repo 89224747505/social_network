@@ -58,4 +58,16 @@ export const getUserLoginThunk = (login, email, password) => (dispatch) => {
             dispatch(setErrorAuth(true, e.response.data.message))});
 
 }
+
+export const userLogOutThunk = (jwt) => (dispatch) => {
+    UserAPI.setUserLogOut(jwt)
+        .then(data => {
+            dispatch(authUserData("","",""));
+            dispatch(setErrorAuth(true, ""));
+            dispatch(setJWT(""));
+        })
+        .catch(e => {
+            dispatch(setErrorAuth(true, e.response.data.message))
+        });
+}
 export default authReducer;

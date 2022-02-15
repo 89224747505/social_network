@@ -1,10 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from './Header.module.css'
 import NavItem from "../common/NavItem/NavItem";
+import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
     const [form, setForm] = useState(0);
-    setForm(false);
+    debugger;
+    useEffect(()=>{
+        setForm(false);
+    },[props.isAuth]);
+
     const openForm = () => setForm(!form)
 
     return (
@@ -12,7 +17,13 @@ const Header = (props) => {
             <div className={classes.header__image}></div>
             <div className={classes.loginBlock}>
                 {props.isAuth
-                    ? <div onClick={openForm} className={classes.login}>{props.login}<span style={{cursor:'pointer',color:'black', fontSize:'16px', paddingLeft:'6px'}}>&#9660;</span></div>
+                    ? <div className={classes.login}>{props.login}
+                        <div onMouseLeave={openForm} className={form ? classes.activeForm : classes.disableForm}>
+                            <NavLink className={classes.listElement} to={'/login'}>Sign in</NavLink>
+                            <div onClick={props.userLogOut} className={classes.listElement}>Log out</div>
+                        </div>
+                        <span onMouseOver={openForm} style={{cursor:'pointer',color:'black', fontSize:'16px', paddingLeft:'6px'}}>&#9660;</span>
+                </div>
                     : <NavItem to={'/login'}>Login</NavItem>}
             </div>
         </header>
