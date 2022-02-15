@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import Login from "./Login";
 import {connect} from "react-redux";
-import {updateEmailText, updateLoginText, updatePasswordText, getUserLoginThunk} from "../../redux/authReducer";
+import {getUserLoginThunk} from "../../redux/authReducer";
+import {FORM_ERROR} from "final-form";
 
 
 class LoginContainer extends Component {
 
-    getUserDataAuth = () => {
-        this.props.getUserLoginThunk(this.props.login, this.props.email, this.props.password);
+    getUserDataAuth = (values) => {
+        this.props.getUserLoginThunk(values.login, values.email, values.password);
     }
 
     render() {
@@ -19,13 +20,11 @@ class LoginContainer extends Component {
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
-    login: state.auth.login,
     jwt: state.auth.jwt,
     idAuth: state.auth.idAuth,
-    email: state.auth.email,
-    password: state.auth.password,
+    authMessage: state.auth.authMessage,
     errorAuth: state.auth.errorAuth,
 });
 
 
-export default connect(mapStateToProps, {updateLoginText, updateEmailText, updatePasswordText, getUserLoginThunk})(LoginContainer);
+export default connect(mapStateToProps, {getUserLoginThunk})(LoginContainer);

@@ -1,28 +1,49 @@
 import React from 'react';
 import classes from "./Login.module.css";
 import MyButton from "../common/MyButton/MyButton";
+import {Form, Field} from "react-final-form";
+import {validation} from "../../Utils/validation";
+import MyInput from "../common/MyInput/MyInput";
 
 const Login = (props) => {
 
-    let getChangeLogin = (event) => props.updateLoginText(event.target.value);
-
-    let getChangeEmail = (event) => props.updateEmailText(event.target.value);
-
-    let getChangePassword = (event) => props.updatePasswordText(event.target.value);
-
     return (
         <div className={classes.container}>
-            <div><input onChange={getChangeLogin} type="text" placeholder="Введите логин" value={props.login}/></div>
-            <div><input onChange={getChangeEmail} type="text" placeholder="Введите e-mail" value={props.email}/></div>
-            <div><input onChange={getChangePassword} type="password" placeholder="Введите пароль" value={props.password}/></div>
-            <MyButton onClick={props.getUserDataAuth} style={{width:"200px"}}>Авторизоваться</MyButton>
-
-            {!props.isAuth
-                ? <div>Пользователь не авторизован</div>
-                : <div>Пользователь авторизован</div>}
-            {props.errorAuth
-                ? <div>Ошибка авторизации</div>
-                : null}
+            <Form
+                onSubmit={props.getUserDataAuth}
+                validate={validation}
+                render={({handleSubmit, submitting, pristine}) => (
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <Field
+                                name="login"
+                                component={MyInput}
+                                type="text"
+                                placeholder="Введите логин"
+                            />
+                        </div>
+                        <div>
+                            <Field
+                                name="email"
+                                component={MyInput}
+                                type="text"
+                                placeholder="Введите email"
+                            />
+                        </div>
+                        <div>
+                            <Field
+                                name="password"
+                                component={MyInput}
+                                type="password"
+                                placeholder="Введите пароль"
+                            />
+                        </div>
+                        <MyButton type="submit" disabled={submitting || pristine}
+                                  style={{width: "200px"}}>Авторизоваться</MyButton>
+                        <div>{props.authMessage}</div>
+                    </form>
+                )}
+            />
         </div>
     );
 };
