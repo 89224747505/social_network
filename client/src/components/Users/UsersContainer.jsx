@@ -13,6 +13,15 @@ import {
 import Users from "./Users";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import compose from "lodash/fp/compose";
+import {
+    getBaseURL,
+    getCurrentPage,
+    getCurrentTwentyBlock, getFollowingInProgress, getFollowingUser, getIsFetching,
+    getPageSize,
+    getTotalUsersCount,
+    getUsers
+} from "../../selectors/userSelectors";
+import {getIDAuth, getJWT} from "../../selectors/authSelector";
 
 
 
@@ -35,17 +44,18 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        baseURL:state.usersPage.baseURL,
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage:state.usersPage.currentPage,
-        currentTwentyBlock: state.usersPage.currentTwentyBlock,
-        isFetching: state.usersPage.isFetching,
-        authID:state.auth.idAuth,
-        jwt: state.auth.jwt,
-        followingInProgress: state.usersPage.followingInProgress,
-        followingUser: state.usersPage.followingUser,
+        baseURL:getBaseURL(state),
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        currentTwentyBlock: getCurrentTwentyBlock(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
+        followingUser: getFollowingUser(state),
+        authID: getIDAuth(state),
+        jwt: getJWT(state),
+
     }
 };
 

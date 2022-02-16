@@ -1,5 +1,5 @@
 import './App.css';
-import {Route, Routes, Router} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
@@ -21,13 +21,14 @@ function App(props) {
                 <NavBar/>
                 <div className="app__content">
                     <Routes>
-                        <Route path="/profile*" element={<ProfileContainer/>}/>
-                        <Route path="/messages*" element={<DialogsContainer/>}/>
-                        <Route path="/users*" element={<UsersContainer/>}/>
-                        <Route path="/news*" element={<News/>}/>
-                        <Route path="/music*" element={<Music/>}/>
-                        <Route path="/settings*" element={<Settings/>}/>
-                        <Route path="/login*" element={<LoginContainer/>}/>
+                        <Route path="/" element={<LoginContainer/>}/>
+                        <Route path="/profile/*" element={<ProfileContainer/>}/>
+                        <Route path="/messages" element={<DialogsContainer/>}/>
+                        <Route path="/users" element={<UsersContainer/>}/>
+                        <Route path="/news" element={<News/>}/>
+                        <Route path="/music" element={<Music/>}/>
+                        <Route path="/settings" element={<Settings/>}/>
+                        <Route path="/login" element={<LoginContainer/>}/>
                     </Routes>
                 </div>
             </div>

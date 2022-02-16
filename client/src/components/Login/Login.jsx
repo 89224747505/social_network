@@ -4,8 +4,11 @@ import MyButton from "../common/MyButton/MyButton";
 import {Form, Field} from "react-final-form";
 import {validation} from "../../Utils/validation";
 import MyInput from "../common/MyInput/MyInput";
+import {Navigate} from "react-router-dom";
 
 const Login = (props) => {
+
+    if (props.isAuth) return <Navigate to={"/profile"} />
 
     return (
         <div className={classes.container}>

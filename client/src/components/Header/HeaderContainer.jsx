@@ -6,7 +6,6 @@ import {userLogOutThunk} from "../../redux/authReducer";
 class HeaderContainer extends Component {
 
     userLogOut = () => {
-        debugger;
         this.props.userLogOutThunk(this.props.jwt);
     }
 

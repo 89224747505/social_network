@@ -4,8 +4,7 @@ import NavItem from "../common/NavItem/NavItem";
 import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
-    const [form, setForm] = useState(0);
-    debugger;
+    const [form, setForm] = useState(false);
     useEffect(()=>{
         setForm(false);
     },[props.isAuth]);
