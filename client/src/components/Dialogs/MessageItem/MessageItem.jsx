@@ -7,7 +7,7 @@ const MessageItem = (props) => {
         <div className={classes.messageContainer}>
             <div className={classes.imgAndName}>
                 <div className={classes.imgMessage}>
-                    <img src={props.imgpath}/>
+                    <img src={props.imgPath}/>
                 </div>
                 <div className={classes.userName}>{props.userName}</div>
             </div>

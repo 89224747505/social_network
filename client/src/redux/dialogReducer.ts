@@ -1,6 +1,6 @@
 import {InitialStateType} from "./types/dialogReducerTypes"
 
-let initState = {
+let initState:InitialStateType = {
     dialogs:[
     {id: 1, name: 'Иван'},
     {id: 2, name: 'Иннокентий'},

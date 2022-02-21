@@ -12,7 +12,7 @@ const Dialogs = (props) => {
 
     //Массив элементов MessageItem
     let messageElements = messagePage.messages
-        .map(message => <MessageItem userId={message.id} userName={message.name} imgpath={message.imgpath}
+        .map(message => <MessageItem userId={message.id} userName={message.name} imgPath={message.imgPath}
                                      text={message.text}/>)
 
     //Массив элементов DialogItem
