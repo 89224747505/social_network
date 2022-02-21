@@ -6,14 +6,18 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import React from "react";
+import React, {useEffect} from "react";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 
 
 function App(props) {
-
+    let a;
+    useEffect(()=>{
+        a = localStorage.getItem("jwt");
+    },[]);
+    console.log("Var - ",a);
     return (
         <div className="wrapper">
             <div className="App">

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Login from "./Login";
 import {connect} from "react-redux";
-import {getUserLoginThunk} from "../../redux/authReducer";
-import {FORM_ERROR} from "final-form";
+import {getUserLoginThunk} from "../../redux/authReducer.ts";
 
 
 class LoginContainer extends Component {

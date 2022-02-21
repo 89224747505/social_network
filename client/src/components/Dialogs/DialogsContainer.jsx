@@ -1,4 +1,4 @@
-import {addMessageAC, updateMessageAC} from "../../redux/messageReducer";
+import {addMessageAC, updateMessageAC} from "../../redux/messageReducer.ts";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -6,7 +6,7 @@ import compose from "lodash/fp/compose";
 
 let mapStateToProps = (state) => {
     return {
-        dialog: state.dialogPage,
+        dialog: state.dialogPage.dialogs,
         message: state.messagePage,
     }
 }

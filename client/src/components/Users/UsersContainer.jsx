@@ -9,7 +9,7 @@ import {
     setFollowingInProgress,
     getUsersThunk,
     setUserFollowThunk
-} from "../../redux/userReducer";
+} from "../../redux/userReducer.ts";
 import Users from "./Users";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import compose from "lodash/fp/compose";

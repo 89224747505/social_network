@@ -1,43 +1,25 @@
 const ADD_MESSAGE = "ADD-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
-let initReducer = {
+let initState = {
     messages: [
         {
             id: 1,
-            name: "Иван1",
+            name: "Евстафий",
             imgpath: "https://ggscore.com/media/logo/t25596.png?64",
             text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
         },
         {
             id: 2,
-            name: "Иван2",
+            name: "Анатолий",
             imgpath: "https://ggscore.com/media/logo/t25596.png?64",
             text: "doloribus iste, fugit, quam sed obcaecati aliquid officia, quod fuga, est nemo deleniti dolorem"
-        },
-        {
-            id: 3,
-            name: "Иван3",
-            imgpath: "https://ggscore.com/media/logo/t25596.png?64",
-            text: "tempore sequi, dicta doloremque ducimus quidem porro saepe animi voluptas nesciunt libero ipsam"
-        },
-        {
-            id: 4,
-            name: "Иван4",
-            imgpath: "https://ggscore.com/media/logo/t25596.png?64",
-            text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
-        },
-        {
-            id: 5,
-            name: "Иван5",
-            imgpath: "https://ggscore.com/media/logo/t25596.png?64",
-            text: "11111Lorem sdfgsdfgsdfgipsum dolor sit amet consectetur, adipisicing elit."
         },
     ],
     newMessageText: "",
 };
 
-const messageReducer = (state = initReducer, action) => {
+const messageReducer = (state = initState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:{
             let newMessage = {

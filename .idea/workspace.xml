@@ -5,19 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7727e93b-5d8a-4085-aee8-64a6faad35b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/selectors/authSelector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/selectors/userSelectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/redux/types/authReducerTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/redux/types/dialogReducerTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header/HeaderContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Users/UsersContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Users/UsersContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/authReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/dialogReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/dialogReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/messageReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/messageReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/profileReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reduxStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/userReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/usersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/usersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/middleware/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/authMiddleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/usersRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/usersRouter.js" afterDir="false" />
     </list>
@@ -31,6 +41,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="24XUouy0ZlGJIDZXVkxQQLIyHKc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -51,7 +64,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\project_react\social_network\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -119,7 +132,19 @@
       <workItem from="1644921301308" duration="10104000" />
       <workItem from="1644937518939" duration="5873000" />
       <workItem from="1644987317358" duration="3156000" />
-      <workItem from="1645015922878" duration="7322000" />
+      <workItem from="1645015922878" duration="7804000" />
+      <workItem from="1645066491140" duration="4000" />
+      <workItem from="1645084581585" duration="479000" />
+      <workItem from="1645101024667" duration="717000" />
+      <workItem from="1645108955869" duration="49000" />
+      <workItem from="1645111695145" duration="4471000" />
+      <workItem from="1645156341669" duration="119000" />
+      <workItem from="1645160713207" duration="50000" />
+      <workItem from="1645187941837" duration="142000" />
+      <workItem from="1645279847170" duration="937000" />
+      <workItem from="1645339978019" duration="61000" />
+      <workItem from="1645427300330" duration="8646000" />
+      <workItem from="1645436022203" duration="293000" />
     </task>
     <servers />
   </component>
