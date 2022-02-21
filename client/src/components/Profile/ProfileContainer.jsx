@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getUserProfileThunk, setUserProfile, setUserStatusThunk} from '../../redux/profileReducer.ts'
+import {getUserProfileThunk, setUserStatusThunk} from '../../redux/profileReducer.ts'
 import {useParams} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import compose from "lodash/fp/compose";
@@ -39,7 +39,7 @@ let mapStateToProps = (state) => (
 
 
 export default compose(
-    connect(mapStateToProps, {setUserProfile, getUserProfileThunk, setUserStatusThunk}),
+    connect(mapStateToProps, {getUserProfileThunk, setUserStatusThunk}),
     withAuthRedirect
 )(ProfileContainer);
 

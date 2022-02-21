@@ -44,8 +44,8 @@ const messageReducer = (state = initState, action:any):InitialStateType => {
     }
 }
 
-export const addMessageAC = ():AddMessageType => ({type: ADD_MESSAGE}); // Создает объект для Диспатча, для управления рендером
-export const updateMessageAC = (textMessage:string):UpdateNewMessageTextType =>
+export const addMessage = ():AddMessageType => ({type: ADD_MESSAGE}); // Создает объект для Диспатча, для управления рендером
+export const updateMessage = (textMessage:string):UpdateNewMessageTextType =>
     ({type: UPDATE_NEW_MESSAGE_TEXT, payload: textMessage}); // Создает объект для Диспатча, для управления рендером
 
 export default messageReducer;

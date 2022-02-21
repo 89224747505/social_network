@@ -9,7 +9,7 @@ const ProfileInfo = (props) => {
     const [status, setStatus] = useState(1);
 
     useEffect(()=>{
-        setStatus(props.profile.status);
+       setStatus(props.profile.status);
     },[props.profile.status]);
 
     let activateForm = () => setActive(true);
@@ -34,7 +34,7 @@ const ProfileInfo = (props) => {
 
                 <div className={classes.nameStatus}>
                     <div className={classes.fullname}>{props.profile.fullName}</div>
-                    {active && props.authUserId == props.profile.userId
+                    {active && props.authUserId === Number(props.profile.userId)
                         ? <textarea className={classes.status}
                                  autoFocus={true}
                                  onBlur={deactivateForm}

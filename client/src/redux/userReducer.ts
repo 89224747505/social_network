@@ -1,17 +1,18 @@
 import {UserAPI} from "../api/api";
+import {FollowType, InitialState, UnfollowType} from "./types/userReducerTypes";
 
-const FOLLOW = "FOLLOW";
-const UNFOLLOW = "UNFOLLOW";
-const SET_USERS = "SET-USERS";
-const SET_BLOCK_BEFORE = "SET_BLOCK_BEFORE";
-const SET_BLOCK_AFTER = "SET_BLOCK_AFTER";
-const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
-const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
-const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
-const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
-const SET_BASE_URL = 'SET_BASE_URL';
+export const FOLLOW = "FOLLOW";
+export const UNFOLLOW = "UNFOLLOW";
+export const SET_USERS = "SET-USERS";
+export const SET_BLOCK_BEFORE = "SET_BLOCK_BEFORE";
+export const SET_BLOCK_AFTER = "SET_BLOCK_AFTER";
+export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+export const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
+export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+export const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
+export const SET_BASE_URL = 'SET_BASE_URL';
 
-let initReducer = {
+let initState:InitialState = {
     users:[],
     totalUsersCount:0,
     pageSize:3,
@@ -24,13 +25,13 @@ let initReducer = {
 };
 
 
-const userReducer = (state = initReducer, action) => {
+const userReducer = (state = initState, action):InitialState => {
     switch (action.type) {
         case FOLLOW:
             return  {
                 ...state,
                 users: state.users.map(user => {
-                        if (action.userID === user.id) {
+                        if (action.payload === user.id) {
                             return {...user, followed: true}
                         }
                         return user;
@@ -41,7 +42,7 @@ const userReducer = (state = initReducer, action) => {
             return  {
                 ...state,
                 users: state.users.map(user => {
-                        if (action.userID === user.id) {
+                        if (action.payload === user.id) {
                             return {...user, followed: false}
                         }
                         return user;
@@ -87,8 +88,11 @@ const userReducer = (state = initReducer, action) => {
     }
 }
 
-export const follow = (userID) => ({type: FOLLOW, userID});
-export const unfollow = (userID) => ({type: UNFOLLOW, userID});
+export const follow = (userID:number):FollowType => ({type: FOLLOW, payload:userID});
+export const unfollow = (userID:number):UnfollowType => ({type: UNFOLLOW, payload:userID});
+
+
+
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
 export const setBlockBefore = () => ({type: SET_BLOCK_BEFORE});

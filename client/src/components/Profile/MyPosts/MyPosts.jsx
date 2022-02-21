@@ -11,7 +11,7 @@ const MyPosts = (props) => {
 
     let addPostOnClick = () => props.addPost();
 
-    let onChangePost = (event) => props.updateNewPostText(event.target.value);
+    let onChangePost = (event) => props.updatePost(event.target.value);
 
     return (<div className={classes.MyPosts}>
         <div className={classes.descriptionPost}>My posts</div>

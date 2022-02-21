@@ -1,54 +1,68 @@
 import {UserAPI} from "../api/api";
 import {setBaseURL} from "./userReducer.ts";
+import {InitialStateType, AddPostType, UpdateNewPostType, ProfileType,
+        SetUserProfileType, SetUserStatusType} from "./types/profileReducerTypes.ts"
 
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const SET_USER_PROFILE_DATA = "SET_USER_PROFILE_DATA";
-const SET_USER_STATUS = "SET_USER_STATUS";
+export const ADD_POST = "ADD-POST";
+export const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+export const SET_USER_PROFILE_DATA = "SET_USER_PROFILE_DATA";
+export const SET_USER_STATUS = "SET_USER_STATUS";
 
-let initReducer = {
+let initState:InitialStateType = {
     posts: [
         {
             id: 1,
             text: "5Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
             imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "5",
-            dislikesCounter: "232"
+            likesCounter: 5,
+            dislikesCounter: 232,
         },
         {
             id: 2,
             text: "4Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Quidem, optio? Quaerat, commodi rerum, iure earum asperiores totam corrupti aliquam hic tempora illo. Quam, earum eum ratione optio. Enim, numquam hic?",
             imgUrl: "https://ggscore.com/media/logo/t25596.png?64",
-            likesCounter: "523",
-            dislikesCounter: "10"
+            likesCounter: 523,
+            dislikesCounter: 10
         },
     ],
     newPostText: "",
     profile:{
         baseURL:'',
-        contacts: {},
+        contacts: {
+            github:null,
+            vk:null,
+            Instagram:null,
+            facebook:null,
+            mainLink:null,
+            twitter:null,
+            website:null,
+            youtube:null
+        },
         currentUserProfile: '',
         email: '',
         fullName: '',
         lookingForAJob: false,
         lookingForAJobDescription: '',
         name: '',
-        photos: {},
+        photos: {
+            small: null,
+            large: null
+        },
         status: '',
-        userId: ''
+        userId: null,
     }
 };
 
 
-const profileReducer = (state = initReducer, action) => {
+const profileReducer = (state = initState, action:any):InitialStateType => {
     switch (action.type) {
         case ADD_POST:{
             let newPost = {
                 id: 5,
                 text: state.newPostText,
                 imgUrl: "",
-                likesCounter: "3",
-                dislikesCounter: "5",
+                likesCounter: 3,
+                dislikesCounter: 5,
             };
             let stateCopy = {...state};
             stateCopy.posts = [...state.posts];
@@ -58,14 +72,14 @@ const profileReducer = (state = initReducer, action) => {
 
         case UPDATE_NEW_POST_TEXT:{
             let stateCopy = {...state};
-            stateCopy.newPostText = action.newMessage;
+            stateCopy.newPostText = action.payload;
             return stateCopy;}
 
-        case SET_USER_PROFILE_DATA: return {...state, profile:action.usersData}
+        case SET_USER_PROFILE_DATA: return {...state, profile:action.payload}
 
         case SET_USER_STATUS: {
             let copyState = {...state};
-            copyState.profile.status = action.status;
+            copyState.profile.status = action.payload;
             return copyState;}
 
         default:
@@ -73,11 +87,10 @@ const profileReducer = (state = initReducer, action) => {
     }
 }
 
-
-export const addPostAC = () => ({type: ADD_POST});
-export const updatePostAC = (textMessage) => ({type: UPDATE_NEW_POST_TEXT, newMessage: textMessage});
-export const setUserProfile = (usersData) => ({type: SET_USER_PROFILE_DATA, usersData});
-export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
+export const addPost = ():AddPostType => ({type: ADD_POST});
+export const updatePost = (textMessage:string):UpdateNewPostType => ({type: UPDATE_NEW_POST_TEXT, payload: textMessage});
+const setUserProfile = (usersData:ProfileType):SetUserProfileType => ({type: SET_USER_PROFILE_DATA, payload:usersData});
+export const setUserStatus = (status:string):SetUserStatusType => ({type: SET_USER_STATUS, payload:status});
 
 
 export const setUserStatusThunk = (userID, status) => (dispatch) => {
