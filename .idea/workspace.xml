@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7727e93b-5d8a-4085-aee8-64a6faad35b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/redux/types/profileReducerTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/redux/types/userReducerTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Dialogs/DialogsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dialogs/DialogsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Profile/MyPosts/MyPostsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Profile/MyPosts/MyPostsContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Profile/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Profile/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/messageReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/messageReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/profileReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/profileReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/types/userReducerTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/types/userReducerTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/userReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/userReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/usersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/usersController.js" afterDir="false" />
@@ -136,7 +128,8 @@
       <workItem from="1645339978019" duration="61000" />
       <workItem from="1645427300330" duration="8646000" />
       <workItem from="1645436022203" duration="1657000" />
-      <workItem from="1645443986504" duration="5640000" />
+      <workItem from="1645443986504" duration="5855000" />
+      <workItem from="1645504663571" duration="2641000" />
     </task>
     <servers />
   </component>

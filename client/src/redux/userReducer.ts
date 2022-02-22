@@ -1,5 +1,6 @@
 import {UserAPI} from "../api/api";
-import {FollowType, InitialState, UnfollowType} from "./types/userReducerTypes";
+import {FollowType, InitialState,SetBaseUrlType, SetBlockAfterType, SetBlockBeforeType, SetCurrentPageType,
+    SetTotalCountType, SetUsersType, ToggleIsFetchingType, ToggleIsFollowingType, UnfollowType, UserType} from "./types/userReducerTypes";
 
 export const FOLLOW = "FOLLOW";
 export const UNFOLLOW = "UNFOLLOW";
@@ -65,23 +66,23 @@ const userReducer = (state = initState, action):InitialState => {
                 currentPage: (state.currentTwentyBlock === 0) ? 1 : state.currentTwentyBlock,
             };
 
-        case SET_USERS: return {...state, users:[ ...action.users]};
+        case SET_USERS: return {...state, users:[ ...action.payload]};
 
         case SET_TOTAL_COUNT:
-            return {...state, totalUsersCount: action.totalCount};
+            return {...state, totalUsersCount: action.payload};
 
 
         case SET_CURRENT_PAGE:
-            return {...state, currentPage: action.current};
+            return {...state, currentPage: action.payload};
 
         case TOGGLE_IS_FETCHING:
-            return {...state, isFetching: action.stateIsFetching};
+            return {...state, isFetching: action.payload};
 
         case TOGGLE_IS_FOLLOWING_PROGRESS:
-            return {...state, followingInProgress: action.stateFollowingProgress, followingUser: action.userID};
+            return {...state, followingInProgress: action.payload.stateFollowingProgress, followingUser: action.payload.userID};
 
         case SET_BASE_URL:
-            return {...state, baseURL: action.baseURL};
+            return {...state, baseURL: action.payload};
 
         default:
             return state;
@@ -90,17 +91,17 @@ const userReducer = (state = initState, action):InitialState => {
 
 export const follow = (userID:number):FollowType => ({type: FOLLOW, payload:userID});
 export const unfollow = (userID:number):UnfollowType => ({type: UNFOLLOW, payload:userID});
+export const setUsers = (users:Array<UserType>):SetUsersType => ({type: SET_USERS, payload:users});
+export const setTotalCount = (totalCount:number):SetTotalCountType => ({type: SET_TOTAL_COUNT, payload:totalCount});
+export const setBlockBefore = ():SetBlockBeforeType => ({type: SET_BLOCK_BEFORE});
+export const setBlockAfter = ():SetBlockAfterType => ({type: SET_BLOCK_AFTER});
+export const setCurrentPage = (current:number):SetCurrentPageType => ({type: SET_CURRENT_PAGE, payload:current});
+export const setIsFetching = (stateIsFetching:boolean):ToggleIsFetchingType => ({type: TOGGLE_IS_FETCHING, payload:stateIsFetching});
+export const setFollowingInProgress = (stateFollowingProgress:boolean,userID:number):ToggleIsFollowingType =>
+                                    ({type:TOGGLE_IS_FOLLOWING_PROGRESS, payload:{stateFollowingProgress, userID}});
+export const setBaseURL = (baseURL:string):SetBaseUrlType => ({type:SET_BASE_URL, payload:baseURL});
 
 
-
-export const setUsers = (users) => ({type: SET_USERS, users});
-export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
-export const setBlockBefore = () => ({type: SET_BLOCK_BEFORE});
-export const setBlockAfter = () => ({type: SET_BLOCK_AFTER});
-export const setCurrentPage = (current) => ({type: SET_CURRENT_PAGE, current});
-export const setIsFetching = (stateIsFetching) => ({type: TOGGLE_IS_FETCHING, stateIsFetching});
-export const setFollowingInProgress = (stateFollowingProgress,userID) => ({type:TOGGLE_IS_FOLLOWING_PROGRESS, stateFollowingProgress, userID});
-export const setBaseURL = (baseURL) => ({type:SET_BASE_URL, baseURL});
 
 export const getUsersThunk = (currentPage, pageSize, jwt) => (dispatch) => {
 
